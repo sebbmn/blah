@@ -1,6 +1,8 @@
 <script>
   import logo from './assets/svelte.png'
   import Counter from './lib/Counter.svelte'
+  import { WiredButton, WiredInput } from "wired-elements"
+
 </script>
 
 <main>
@@ -8,6 +10,9 @@
   <h1>Hello world!</h1>
 
   <Counter />
+  <wired-input placeholder="Enter name"></wired-input>
+  <wired-button>Click Me</wired-button>
+
 
   <p>
     Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte
