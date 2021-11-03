@@ -1,9 +1,12 @@
 <script>
-
+import GroupList from '../lib/GroupList.svelte';
 </script>
 
 <div class="nav-top">Top here</div>
-<div class="nav-main">Main nav here</div>
+<div class="nav-main">
+  Main nav here
+  <GroupList />
+</div>
 
 <style>
 .nav-top {
