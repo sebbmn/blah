@@ -30,12 +30,12 @@ main {
   display: flex;
 }
 .blah-layout-nav {
-  background-color: lightblue;
+  border-radius: 10px;
   width: 350px;
 }
 
 .blah-layout-main {
-  background-color: yellow;
+  border-radius: 10px;
   width: calc(100% - 350px);
 }
 </style>

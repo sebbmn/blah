@@ -1,21 +1,28 @@
 <script>
 import GroupList from '../lib/GroupList.svelte';
+import MainMenubar from '../lib/MainMenubar.svelte';
 </script>
 
-<div class="nav-top">Top here</div>
+<div class="nav-top">
+  <MainMenubar />
+</div>
 <div class="nav-main">
-  Main nav here
   <GroupList />
 </div>
 
 <style>
 .nav-top {
-  height: 60px;
-  background: yellowgreen;
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 58px;
+  background-color: whitesmoke;
+  padding: 0;
 }
 
 .nav-main {
-  height: calc(100% - 60px);
-  background: wheat;
+  border: 1px solid white;
+  border-radius: 10px;
+  height: calc(100% - 58px);
+  background-color: whitesmoke;
 }
 </style>

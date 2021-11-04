@@ -1,18 +1,27 @@
 <script>
-
+import GroupMenubar from '../lib/GroupMenubar.svelte';
+import Chat from '../lib/Chat.svelte';
 </script>
 
-<div class="main-top">Top here</div>
-<div class="main-main">Main main here</div>
+<div class="main-top">
+  <GroupMenubar />
+</div>
+<div class="main-main">
+  <Chat />
+</div>
 
 <style>
 .main-top {
-  height: 60px;
-  background: goldenrod;
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 58px;
+  background-color: whitesmoke;
 }
 
 .main-main {
-  height: calc(100% - 60px);
-  background: yellow;
+  border: 1px solid white;
+  border-radius: 10px;
+  height: calc(100% - 58px);
+  background-color: whitesmoke;
 }
 </style>
