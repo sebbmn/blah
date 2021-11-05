@@ -1,14 +1,32 @@
 <script>
   import { WiredCard } from 'wired-elements';
-  </script>
+  import { WiredIconButton } from 'wired-elements';
+</script>
   
-  <wired-card elevation="2" class="main-menubar">
-    <p>Main menu bar</p>
-  </wired-card>
+<wired-card elevation="2" class="main-menubar">
+  <div class="main-menubar-container">
+    <wired-icon-button>
+      <mwc-icon>person</mwc-icon>
+    </wired-icon-button>
+    <p>menu bar</p>
+    <wired-icon-button>
+      <mwc-icon>more_vert</mwc-icon>
+    </wired-icon-button>
+  </div>
+</wired-card>
   
-  <style>
+<style>
   .main-menubar {
-    width: calc(100% - 20px);
-    height: calc(100% - 20px);
+    width: 100%;
+    height: calc(100%);
+    padding: 0;
   }
-  </style>
+  .main-menubar-container {
+    width: calc(100% - 20px);
+    height: calc(100% -4px);
+    padding:  4px 10px 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>
