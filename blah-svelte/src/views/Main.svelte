@@ -15,13 +15,15 @@ import Chat from '../lib/Chat.svelte';
   border: 1px solid white;
   border-radius: 10px;
   height: 58px;
+  padding: 5px;
   background-color: whitesmoke;
 }
 
 .main-main {
   border: 1px solid white;
   border-radius: 10px;
-  height: calc(100% - 58px);
+  height: calc(100% - 78px);
+  padding: 5px;
   background-color: whitesmoke;
 }
 </style>

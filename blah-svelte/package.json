@@ -14,6 +14,7 @@
     "vite": "^2.6.4"
   },
   "dependencies": {
+    "@material/mwc-icon": "^0.25.3",
     "wired-elements": "^3.0.0-rc.6"
   }
 }

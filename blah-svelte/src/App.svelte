@@ -1,5 +1,7 @@
 <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
 <script>
+import '@material/mwc-icon';
 import Nav from './views/Nav.svelte';
 import Main from './views/Main.svelte'; 
 </script>
@@ -17,11 +19,11 @@ import Main from './views/Main.svelte';
 
 <style>
 main {
-  padding: 16px;
+  /*padding: 16px;*/
   text-align: center;
   font-family: "Gloria Hallelujah", cursive;
-  font-size: 16px;
-  line-height: 1.8;
+  font-size: 11pt;
+  /*line-height: 1.8;*/
 }
 #blah-layout {
   max-width: 1440px;
