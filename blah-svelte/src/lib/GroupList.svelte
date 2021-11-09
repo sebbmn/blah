@@ -18,7 +18,7 @@
     },
   ];
 
-  let id = 3;
+  let id = 4;
 
   function addGroup(e) {
     groupList.push({
@@ -31,14 +31,14 @@
 
 <wired-card elevation="2" class="group-list">
   Groups
+  <wired-icon-button class="add-group" on:click={addGroup}>
+    <mwc-icon>add</mwc-icon>
+  </wired-icon-button>
   <wired-listbox selected="two" class="group-listbox">
     {#each groupList as group}
     <wired-item value={group.id}>{group.name}</wired-item>
 	  {/each}
   </wired-listbox>
-  <wired-icon-button class="add-group" on:click={addGroup}>
-    <mwc-icon>add</mwc-icon>
-  </wired-icon-button>
 </wired-card>
 
 <style>
@@ -47,6 +47,10 @@
   height: calc(100% - 20px);
 }
 .group-listbox {
+  max-height: calc(80vh - 20px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 20px;
   width: calc(100% - 10px);
   --wired-item-selected-color: green; 
   --wired-item-selected-bg: yellowgreen;
@@ -54,6 +58,6 @@
 .add-group {
   position:absolute;
   left: 0;
-  bottom: -60px;
+  top: 0;
 }
 </style>
