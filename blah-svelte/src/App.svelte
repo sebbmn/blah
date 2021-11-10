@@ -2,42 +2,66 @@
 <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
 <script>
 import '@material/mwc-icon';
+import { WiredToggle } from 'wired-elements';
 import Nav from './views/Nav.svelte';
-import Main from './views/Main.svelte'; 
+import Main from './views/Main.svelte';
+
+let displayRight = false;
+
+function toggleRightPanel() {
+  displayRight = !displayRight;
+}
 </script>
 
 <main>
+  <wired-toggle on:change={toggleRightPanel}></wired-toggle>
   <div id="blah-layout">
-    <div class="blah-layout-nav">
+    <div class="blah-layout-left">
       <Nav />
     </div>
-    <div class="blah-layout-main">
-      <Main />
-    </div>
+    {#if displayRight}
+      <div class="blah-layout-center">
+        <Main />
+      </div>
+      <div class="blah-layout-right">
+        Right panel area
+      </div>
+    {:else}
+      <div class="blah-layout-center-extended">
+        <Main />
+      </div>
+    {/if}
   </div>
 </main>
 
 <style>
 main {
-  /*padding: 16px;*/
   text-align: center;
   font-family: "Gloria Hallelujah", cursive;
   font-size: 11pt;
-  /*line-height: 1.8;*/
 }
 #blah-layout {
   max-width: 1440px;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 60px);
   margin: 0 auto;
   display: flex;
 }
-.blah-layout-nav {
+.blah-layout-left {
   border-radius: 10px;
   width: 350px;
 }
 
-.blah-layout-main {
+.blah-layout-center {
+  border-radius: 10px;
+  width: calc(100% - 700px);
+}
+.blah-layout-center-extended {
   border-radius: 10px;
   width: calc(100% - 350px);
+}
+
+.blah-layout-right {
+  border-radius: 10px;
+  width: 350px;
 }
 </style>
