@@ -1,32 +1,32 @@
 <script>
-  import { WiredCard } from 'wired-elements';
-  import { WiredListbox } from 'wired-elements';
-  import { WiredIconButton } from 'wired-elements';
+import { WiredCard } from 'wired-elements';
+import { WiredListbox } from 'wired-elements';
+import { WiredIconButton } from 'wired-elements';
 
-  let groupList = [
-    {
-      id: 1,
-      name: "one"
-    },
-    {
-      id: 2,
-      name: "two"
-    },
-    {
-      id: 3,
-      name: "three"
-    },
-  ];
+let groupList = [
+  {
+    id: 1,
+    name: "one"
+  },
+  {
+    id: 2,
+    name: "two"
+  },
+  {
+    id: 3,
+    name: "three"
+  },
+];
 
-  let id = 4;
+let id = 4;
 
-  function addGroup(e) {
-    groupList.push({
-      id: id++,
-      name: "another one bites the dust"
-    })
-    groupList = groupList;
-  }
+function addGroup(e) {
+  groupList.push({
+    id: id++,
+    name: "another one bites the dust"
+  })
+  groupList = groupList;
+}
 </script>
 
 <wired-card elevation="2" class="group-list">

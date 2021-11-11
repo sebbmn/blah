@@ -3,8 +3,9 @@
 <script>
 import '@material/mwc-icon';
 import { WiredToggle } from 'wired-elements';
-import Nav from './views/Nav.svelte';
-import Main from './views/Main.svelte';
+import Left from './views/Left.svelte';
+import Center from './views/Center.svelte';
+import Right from './views/Right.svelte';
 
 let displayRight = false;
 
@@ -17,18 +18,18 @@ function toggleRightPanel() {
   <wired-toggle on:change={toggleRightPanel}></wired-toggle>
   <div id="blah-layout">
     <div class="blah-layout-left">
-      <Nav />
+      <Left />
     </div>
     {#if displayRight}
       <div class="blah-layout-center">
-        <Main />
+        <Center />
       </div>
       <div class="blah-layout-right">
-        Right panel area
+        <Right />
       </div>
     {:else}
       <div class="blah-layout-center-extended">
-        <Main />
+        <Center />
       </div>
     {/if}
   </div>

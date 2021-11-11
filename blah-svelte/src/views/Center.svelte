@@ -3,22 +3,22 @@ import GroupMenubar from '../lib/GroupMenubar.svelte';
 import Chat from '../lib/Chat.svelte';
 </script>
 
-<div class="main-top">
+<div class="center-top">
   <GroupMenubar />
 </div>
-<div class="main-main">
+<div class="center-middle">
   <Chat />
 </div>
 
 <style>
-.main-top {
+.center-top {
   border: 1px solid white;
   border-radius: 10px;
   height: 58px;
   padding: 5px;
 }
 
-.main-main {
+.center-middle {
   border: 1px solid white;
   border-radius: 10px;
   height: calc(100% - 78px);
