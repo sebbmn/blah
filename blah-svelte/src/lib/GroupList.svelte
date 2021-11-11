@@ -41,23 +41,23 @@ function addGroup(e) {
   </wired-listbox>
 </wired-card>
 
-<style>
+<style lang="scss">
 .group-list {
   width: calc(100% - 20px);
   height: calc(100% - 20px);
-}
-.group-listbox {
-  max-height: calc(80vh - 20px);
-  overflow-y: auto;
-  overflow-x: hidden;
-  margin-top: 20px;
-  width: calc(100% - 10px);
-  --wired-item-selected-color: green; 
-  --wired-item-selected-bg: yellowgreen;
-}
-.add-group {
-  position:absolute;
-  left: 0;
-  top: 0;
+  .group-listbox {
+    max-height: calc(80vh - 20px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 20px;
+    width: calc(100% - 10px);
+    --wired-item-selected-color: green; 
+    --wired-item-selected-bg: yellowgreen;
+  }
+  .add-group {
+    position:absolute;
+    left: 0;
+    top: 0;
+  }
 }
 </style>
