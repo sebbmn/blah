@@ -3,6 +3,7 @@
 <script>
 import '@material/mwc-icon';
 import { WiredToggle } from 'wired-elements';
+import { Router } from "svelte-navigator";
 import Left from './views/Left.svelte';
 import Center from './views/Center.svelte';
 import Right from './views/Right.svelte';
@@ -14,26 +15,29 @@ function toggleRightPanel() {
 }
 </script>
 
-<main>
-  <wired-toggle on:change={toggleRightPanel}></wired-toggle>
-  <div id="blah-layout">
-    <div class="blah-layout-left">
-      <Left />
+<Router>
+  <main>
+    <wired-toggle on:change={toggleRightPanel}></wired-toggle>
+    <div id="blah-layout">
+      <div class="blah-layout-left">
+        <Left />
+      </div>
+      {#if displayRight}
+        <div class="blah-layout-center">
+          <Center />
+        </div>
+        <div class="blah-layout-right">
+          <Right />
+        </div>
+      {:else}
+        <div class="blah-layout-center-extended">
+          <Center />
+        </div>
+      {/if}
     </div>
-    {#if displayRight}
-      <div class="blah-layout-center">
-        <Center />
-      </div>
-      <div class="blah-layout-right">
-        <Right />
-      </div>
-    {:else}
-      <div class="blah-layout-center-extended">
-        <Center />
-      </div>
-    {/if}
-  </div>
-</main>
+  </main>
+</Router>
+
 
 <style>
 main {

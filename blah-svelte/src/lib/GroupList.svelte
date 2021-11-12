@@ -2,6 +2,7 @@
 import { WiredCard } from 'wired-elements';
 import { WiredListbox } from 'wired-elements';
 import { WiredIconButton } from 'wired-elements';
+import { navigate } from "svelte-navigator";
 
 let groupList = [
   {
@@ -36,7 +37,9 @@ function addGroup(e) {
   </wired-icon-button>
   <wired-listbox selected="two" class="group-listbox">
     {#each groupList as group}
-    <wired-item value={group.id}>{group.name}</wired-item>
+      <wired-item value={group.id} on:click="{() => navigate(group.name)}">
+        {group.name}
+      </wired-item>
 	  {/each}
   </wired-listbox>
 </wired-card>
