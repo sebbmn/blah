@@ -1,14 +1,29 @@
 <script>
+import { Route } from "svelte-navigator";
 import GroupMenubar from '../lib/GroupMenubar.svelte';
 import Chat from '../lib/Chat.svelte';
+
+function getGroup(id) {
+  return {
+    id: id
+  }
+}
+
+function getChat(id) {
+  return {
+    id: id
+  }
+}
 </script>
 
-<div class="center-top">
-  <GroupMenubar />
-</div>
-<div class="center-middle">
-  <Chat />
-</div>
+<Route path="/group/:id" let:params>
+  <div class="center-top">
+      <GroupMenubar group={getGroup(params.id)}/>
+  </div>
+  <div class="center-middle">
+      <Chat chat={getChat(params.id)}/>
+  </div>
+</Route>
 
 <style>
 .center-top {

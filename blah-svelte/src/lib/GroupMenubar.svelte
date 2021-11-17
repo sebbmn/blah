@@ -1,12 +1,14 @@
 <script>
   import { WiredCard } from 'wired-elements';
   import { WiredIconButton } from 'wired-elements';
+
+  export let group;
 </script>
   
 <wired-card elevation="2" class="group-menubar">
   <div class="group-menubar-container">
     <mwc-icon class="group-menubar-icon">image</mwc-icon>
-    <p>Group menu bar</p>
+    <p>Group {group.id} menu bar</p>
     <mwc-icon class="group-menubar-icon">more_vert</mwc-icon>
   </div>
 </wired-card>

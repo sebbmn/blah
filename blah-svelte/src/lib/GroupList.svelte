@@ -37,7 +37,7 @@ function addGroup(e) {
   </wired-icon-button>
   <wired-listbox selected="two" class="group-listbox">
     {#each groupList as group}
-      <wired-item value={group.id} on:click="{() => navigate(group.name)}">
+      <wired-item value={group.id} on:click="{() => navigate(`/group/${group.id}`)}">
         {group.name}
       </wired-item>
 	  {/each}

@@ -1,9 +1,11 @@
 <script>
 import { WiredCard } from 'wired-elements';
+
+export let chat;
 </script>
 
 <wired-card elevation="2" class="chat">
-  <p>chat</p>
+  <p>chat {chat.id}</p>
 </wired-card>
 
 <style>
