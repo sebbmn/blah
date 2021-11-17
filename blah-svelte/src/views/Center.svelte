@@ -16,7 +16,7 @@ function getChat(id) {
 }
 </script>
 
-<Route path="/group/:id" let:params>
+<Route path="/group/:id" let:params primary={false}>
   <div class="center-top">
       <GroupMenubar group={getGroup(params.id)}/>
   </div>

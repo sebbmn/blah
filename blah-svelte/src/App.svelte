@@ -10,14 +10,14 @@ import Right from './views/Right.svelte';
 
 let displayRight = false;
 
-function toggleRightPanel() {
+/* function toggleRightPanel() {
   displayRight = !displayRight;
-}
+} */
 </script>
 
 <Router>
   <main>
-    <wired-toggle on:change={toggleRightPanel}></wired-toggle>
+    <!--<wired-toggle on:change={toggleRightPanel}></wired-toggle>-->
     <div id="blah-layout">
       <div class="blah-layout-left">
         <Left />
