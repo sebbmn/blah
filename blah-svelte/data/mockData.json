@@ -1,32 +1,98 @@
 {
   "users": {
     "usr1": {
-      "name": "User one",
+      "name": "Avon Barksdale",
+      "avatar": "<url>",
       "groups": {
          "grp1": "admin",
-         "grp2": "member"
+         "grp2": "admin"
+      },
+      "contacts": [
+        "usr2"
+      ]
+    },
+    "usr2":  {
+      "name": "Stringer Bell",
+      "avatar": "<url>",
+      "groups": {
+         "grp1": "admin",
+         "grp2": "admin",
+         "grp3":"admin",
+         "grp4": "admin"
+      },
+      "contacts": [
+        "usr1",
+        "usr3"
+      ]
+    },
+    "usr3":  {
+      "name": "Wee-Bey",
+      "avatar": "<url>",
+      "groups": {
+         "grp1": "member",
+         "grp3": "admin"
+      },
+      "contacts": [
+        "usr2"
+      ]
+    },
+    "usr4":  {
+      "name": "Omar Little",
+      "avatar": "<url>",
+      "groups": {
+        "grp4": "admin"
       },
       "contacts": []
-    },
-    "usr2": {},
-    "usr3": {}
+    }
   },
   "groups": {
     "grp1": {
-      "name": "Group One",
+      "name": "Barksdale Organization",
+      "description": "Drug-dealing gang in West Baltimore",
+      "avatar": "<url>",
+      "groupType": "group",
       "members": {
         "usr1": "admin",
-        "usr2": "member"
+        "usr2": "admin",
+        "usr3": "member"
       }
     },
-    "grp2": {},
-    "grp3": {}
+    "grp2": {
+      "name": "conversation",
+      "description": "private conversation",
+      "avatar": "",
+      "groupType": "dialog",
+      "members": {
+        "usr1": "admin",
+        "usr2": "admin"
+      }
+    },
+    "grp3": {
+      "name": "conversation",
+      "description": "private conversation",
+      "avatar": "",
+      "groupType": "dialog",
+      "members": {
+        "usr2": "admin",
+        "usr3": "admin"
+      }
+    },
+    "grp4": {
+      "name": "conversation",
+      "description": "private chat",
+      "avatar": "",
+      "groupType": "dialog",
+      "members": {
+        "usr2": "admin",
+        "usr4": "admin"
+      }
+    }
   },
   "images" : {
     "grp1": {
         "img1": {
-          "user": "user1",
-          "message": "m1",
+          "user": "usr1",
+          "message": "msg1",
           "desc": "image description here...",
           "url": "<url>"
         },
