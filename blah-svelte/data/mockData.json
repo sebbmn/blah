@@ -1,0 +1,60 @@
+{
+  "users": {
+    "usr1": {
+      "name": "User one",
+      "groups": {
+         "grp1": "admin",
+         "grp2": "member"
+      },
+      "contacts": []
+    },
+    "usr2": {},
+    "usr3": {}
+  },
+  "groups": {
+    "grp1": {
+      "name": "Group One",
+      "members": {
+        "usr1": "admin",
+        "usr2": "member"
+      }
+    },
+    "grp2": {},
+    "grp3": {}
+  },
+  "images" : {
+    "grp1": {
+        "img1": {
+          "user": "user1",
+          "message": "m1",
+          "desc": "image description here...",
+          "url": "<url>"
+        },
+        "img2": {}
+      },
+    "grp2": {},
+    "grp3": {}
+  },
+  "chats": {
+    "grp1": {
+      "title": "Chat one title",
+      "lastMessage": "message content here ...",
+      "timestamp": 1459361875666
+    },
+    "grp2": {},
+    "grp3": {}
+  },
+  "messages": {
+    "grp1": {
+      "msg1": {
+        "user": "usr1",
+        "message": "message content here ...",
+        "timestamp": 1459361875337
+      },
+      "msg2": {},
+      "msg3": {}
+    },
+    "grp2": {},
+    "grp3": {}
+  }
+}
