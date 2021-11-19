@@ -51,6 +51,7 @@
       "description": "Drug-dealing gang in West Baltimore",
       "avatar": "<url>",
       "groupType": "group",
+      "lastMessage": "There’s always gonna be a Marlo, man. No Marlo, no game",
       "members": {
         "usr1": "admin",
         "usr2": "admin",
@@ -59,9 +60,10 @@
     },
     "grp2": {
       "name": "conversation",
-      "description": "private conversation",
+      "description": "private chat",
       "avatar": "",
       "groupType": "dialog",
+      "lastMessage": "Yeah. They saw your ghetto ass comin' from miles away, n***a! You got a f***in' beef with them? That shit is on YOU!",
       "members": {
         "usr1": "admin",
         "usr2": "admin"
@@ -69,9 +71,10 @@
     },
     "grp3": {
       "name": "conversation",
-      "description": "private conversation",
+      "description": "private chat",
       "avatar": "",
       "groupType": "dialog",
+      "lastMessage": "message content here ...",
       "members": {
         "usr2": "admin",
         "usr3": "admin"
@@ -82,6 +85,7 @@
       "description": "private chat",
       "avatar": "",
       "groupType": "dialog",
+      "lastMessage": "You come at the king, you best not miss",
       "members": {
         "usr2": "admin",
         "usr4": "admin"
@@ -103,24 +107,52 @@
   },
   "chats": {
     "grp1": {
-      "title": "Chat one title",
-      "lastMessage": "message content here ...",
-      "timestamp": 1459361875666
-    },
-    "grp2": {},
-    "grp3": {}
-  },
-  "messages": {
-    "grp1": {
       "msg1": {
         "user": "usr1",
-        "message": "message content here ...",
+        "message": "There’s always gonna be a Marlo, man. No Marlo, no game",
         "timestamp": 1459361875337
-      },
-      "msg2": {},
-      "msg3": {}
+      }
     },
-    "grp2": {},
-    "grp3": {}
+    "grp2": {
+      "msg4": {
+        "user": "usr2",
+        "message": "That n***a took our money, man",
+        "timestamp": 0
+      },
+      "msg5": {
+        "user": "usr1",
+        "message": "I seen it comin",
+        "timestamp": 0
+      },
+      "msg6":{
+        "user": "usr2",
+        "message": "Well, he gotta go",
+        "timestamp": 0
+      },
+      "msg7": {
+        "user": "usr1",
+        "message": "Naw, you a f***in' businessman, you wanna handle it like that! You don't wanna get all gangsta-wild with it and s**t, right? What I tell you about playin' them f***in' away games?",
+        "timestamp": 0
+      },
+      "msg8": {
+        "user": "usr1",
+        "message": "Yeah. They saw your ghetto ass comin' from miles away, n***a! You got a f***in' beef with them? That shit is on YOU!",
+        "timestamp": 0
+      }
+    },
+    "grp3": {
+      "msg8": {
+        "user": "usr3",
+        "message": "My word is still my word. In here, in Baltimore, in any place you can think of calling home, it'll be my word that finds you.",
+        "timestamp": 0
+      }
+    },
+    "grp4": {
+      "msg9": {
+        "user": "usr4",
+        "message": "You come at the king, you best not miss",
+        "timestamp": 0
+      }
+    }
   }
 }
