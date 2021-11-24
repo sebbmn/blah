@@ -2,7 +2,7 @@
   "users": {
     "usr1": {
       "name": "Avon Barksdale",
-      "avatar": "<url>",
+      "avatar": "https://upload.wikimedia.org/wikipedia/en/9/97/Avon_Barksdale.jpg",
       "groups": {
          "grp1": "admin",
          "grp2": "admin"
@@ -13,7 +13,7 @@
     },
     "usr2":  {
       "name": "Stringer Bell",
-      "avatar": "<url>",
+      "avatar": "https://upload.wikimedia.org/wikipedia/en/b/b9/Stringer_Bell.jpg",
       "groups": {
          "grp1": "admin",
          "grp2": "admin",
@@ -27,7 +27,7 @@
     },
     "usr3":  {
       "name": "Wee-Bey",
-      "avatar": "<url>",
+      "avatar": "https://upload.wikimedia.org/wikipedia/en/8/85/Wee-Bey_Brice.jpg",
       "groups": {
          "grp1": "member",
          "grp3": "admin"
@@ -38,7 +38,7 @@
     },
     "usr4":  {
       "name": "Omar Little",
-      "avatar": "<url>",
+      "avatar": "https://upload.wikimedia.org/wikipedia/en/b/b7/Omar_Little.png",
       "groups": {
         "grp4": "admin"
       },
@@ -74,7 +74,7 @@
       "description": "private chat",
       "avatar": "",
       "groupType": "dialog",
-      "lastMessage": "message content here ...",
+      "lastMessage": "My word is still my word. In here, in Baltimore, in any place you can think of calling home, it'll be my word that finds you.",
       "members": {
         "usr2": "admin",
         "usr3": "admin"
