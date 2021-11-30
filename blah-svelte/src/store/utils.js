@@ -35,9 +35,9 @@ function _getChats(user) {
       ...acc,
       {
         id: cht,
-        ...chat
+        messages: Object.values({...chat})
       }
     ];
-    return Object.values(acc);
+    return acc;
   }, []);
 }

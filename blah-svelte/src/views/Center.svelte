@@ -13,15 +13,17 @@ data.subscribe(value => {
 });
 
 function getGroup(id) {
-  return groups.find(grp => {
+  const group = groups.find(grp => {
     return grp.id === id;
   });
+  return group;
 }
 
 function getChat(id) {
-  return chats.find(cht => {
+  const chat = chats.find(cht => {
     return cht.id === id;
   });
+  return chat;
 }
 </script>
 

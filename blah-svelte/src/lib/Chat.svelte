@@ -7,7 +7,7 @@ export let chat;
 
 <wired-card elevation="2" class="chat">
   <p>chat {chat.id}</p>
-  {#each Object.values(chat) as msg}
+  {#each chat.messages as msg}
   <p>
     {msg.message}
   </p>
