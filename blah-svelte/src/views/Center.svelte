@@ -1,18 +1,23 @@
 <script>
 import { Route } from "svelte-navigator";
+import { data } from '../store/stores.js';
 import GroupMenubar from '../lib/GroupMenubar.svelte';
 import Chat from '../lib/Chat.svelte';
 
+let groups;
+
+data.subscribe(value => {
+  groups = value.groups["grp1"] || {};
+});
+
 function getGroup(id) {
-  return {
-    id: id
-  }
+  return groups;
 }
 
 function getChat(id) {
   return {
     id: id
-  }
+  };
 }
 </script>
 

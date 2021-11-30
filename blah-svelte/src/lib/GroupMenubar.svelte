@@ -8,7 +8,7 @@
 <wired-card elevation="2" class="group-menubar">
   <div class="group-menubar-container">
     <mwc-icon class="group-menubar-icon">image</mwc-icon>
-    <p>Group {group.id} menu bar</p>
+    <p>{group.name}</p>
     <mwc-icon class="group-menubar-icon">more_vert</mwc-icon>
   </div>
 </wired-card>
