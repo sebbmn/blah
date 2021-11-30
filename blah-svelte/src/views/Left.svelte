@@ -1,13 +1,20 @@
 <script>
+import { data } from '../store/stores.js';
 import GroupList from '../lib/GroupList.svelte';
 import MainMenubar from '../lib/MainMenubar.svelte';
+
+let groups;
+
+data.subscribe(value => {
+  groups = value.groups;
+});
 </script>
 
 <div class="left-top">
   <MainMenubar />
 </div>
 <div class="left-middle">
-  <GroupList />
+  <GroupList groupList={groups}/>
 </div>
 
 <style>

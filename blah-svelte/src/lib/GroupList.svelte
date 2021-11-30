@@ -4,29 +4,17 @@ import { WiredListbox } from 'wired-elements';
 import { WiredIconButton } from 'wired-elements';
 import { navigate } from "svelte-navigator";
 
-let groupList = [
-  {
-    id: 1,
-    name: "one"
-  },
-  {
-    id: 2,
-    name: "two"
-  },
-  {
-    id: 3,
-    name: "three"
-  },
-];
+export let groupList;
 
 let id = 4;
 
 function addGroup(e) {
-  groupList.push({
+  console.log(e)
+  /* groupList.push({
     id: id++,
     name: "another one bites the dust"
   })
-  groupList = groupList;
+  groupList = groupList; */
 }
 </script>
 
