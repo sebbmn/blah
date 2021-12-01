@@ -3,10 +3,10 @@
     "usr1": {
       "name": "Avon Barksdale",
       "avatar": "https://upload.wikimedia.org/wikipedia/en/9/97/Avon_Barksdale.jpg",
-      "groups": {
-         "grp1": "admin",
-         "grp2": "admin"
-      },
+      "groups": [
+         "grp1",
+         "grp2"
+      ],
       "contacts": [
         "usr2"
       ]
@@ -14,12 +14,12 @@
     "usr2":  {
       "name": "Stringer Bell",
       "avatar": "https://upload.wikimedia.org/wikipedia/en/b/b9/Stringer_Bell.jpg",
-      "groups": {
-         "grp1": "admin",
-         "grp2": "admin",
-         "grp3":"admin",
-         "grp4": "admin"
-      },
+      "groups": [
+         "grp1",
+         "grp2",
+         "grp3",
+         "grp4"
+      ],
       "contacts": [
         "usr1",
         "usr3"
@@ -28,10 +28,10 @@
     "usr3":  {
       "name": "Wee-Bey",
       "avatar": "https://upload.wikimedia.org/wikipedia/en/8/85/Wee-Bey_Brice.jpg",
-      "groups": {
-         "grp1": "member",
-         "grp3": "admin"
-      },
+      "groups": [
+         "grp1",
+         "grp3"
+      ],
       "contacts": [
         "usr2"
       ]
@@ -39,9 +39,9 @@
     "usr4":  {
       "name": "Omar Little",
       "avatar": "https://upload.wikimedia.org/wikipedia/en/b/b7/Omar_Little.png",
-      "groups": {
-        "grp4": "admin"
-      },
+      "groups": [
+        "grp4"
+      ],
       "contacts": []
     }
   },
