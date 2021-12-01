@@ -1,13 +1,13 @@
 <script>
 import { WiredCard } from 'wired-elements';
 
-export let chat;
+export let messages;
 
 </script>
 
 <wired-card elevation="2" class="chat">
-  <p>chat {chat.id}</p>
-  {#each chat.messages as msg}
+  <p>chat</p>
+  {#each messages as msg}
   <p>
     {msg.message}
   </p>

@@ -92,11 +92,37 @@ function getGroups (userId) {
 
 /** Format
 [
-  
+  {
+    "id": "",
+    "user": "",
+    "message": "",
+    "timestamp": ""
+  },
+  ...
 ]
 */
-function getChats (userId, groupId) {
-  return [];
+function getChat (userId, groupId) {
+  const chat = data.chats[groupId];
+  const user = data.users[userId] || {};
+  const isInGroup = user.groups.some(grp => grp === groupId);
+
+  if(isInGroup) {
+    const messages = Object.entries(chat);
+    let formatedChat = [];
+
+    for (const [key, value] of messages) {
+      formatedChat = [
+        ...formatedChat,
+        {
+          id: key,
+          ...value
+        }
+      ]
+    }
+    return formatedChat;
+  } else {
+    return [];
+  }
 }
 
-export { loadData, getUser, getUsers, getContacts, getGroups, getChats }
+export { loadData, getUser, getUsers, getContacts, getGroups, getChat }

@@ -1,15 +1,18 @@
 <script>
-import { data } from '../store/stores.js';
+import { data, chat } from '../store/stores.js';
 import { Route } from "svelte-navigator";
 import GroupMenubar from '../lib/GroupMenubar.svelte';
 import Chat from '../lib/Chat.svelte';
 
 let groups;
-let chats;
+let messages;
 
 data.subscribe(value => {
   groups = value.groups;
-  chats = value.chats;
+});
+
+chat.subscribe(value => {
+  messages = value;
 });
 
 function getGroup(id) {
@@ -19,12 +22,9 @@ function getGroup(id) {
   return group;
 }
 
-function getChat(id) {
-  const chat = chats.find(cht => {
-    return cht.id === id;
-  });
-  return chat;
+function getMessages(id) {
 }
+
 </script>
 
 <Route path="/group/:id" let:params primary={false}>
@@ -32,10 +32,9 @@ function getChat(id) {
       <GroupMenubar group={getGroup(params.id)}/>
   </div>
   <div class="center-middle">
-      <Chat chat={getChat(params.id)}/>
+      <Chat messages={messages}/>
   </div>
 </Route>
-
 <style>
 .center-top {
   border: 1px solid white;
