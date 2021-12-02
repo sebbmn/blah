@@ -1,47 +1,5 @@
 import data from "../../data/mockData.json"
 
-function loadData(userId) {
-  const user = data.users[userId] || {};
-
-  const groups = _getGroups(user);
-  const chats = _getChats(user);
-
-  const formatedData = {user, groups, chats}
-  return formatedData;
-}
-
-function _getGroups(user) {
-  const groups = user.groups;
-
-  return  groups.reduce((acc, grp) => {
-    const group = data.groups[grp];
-    acc = [
-      ...acc,
-      {
-        id: grp,
-        ...group
-      }
-    ];
-    return acc;
-  }, []);
-}
-
-function _getChats(user) {
-  const groups = user.groups;
-
-  return  groups.reduce((acc, cht) => {
-    const chat = data.chats[cht];
-    acc = [
-      ...acc,
-      {
-        id: cht,
-        messages: Object.values({...chat})
-      }
-    ];
-    return acc;
-  }, []);
-}
-
 /** Format
 {
   "name": "",
@@ -87,7 +45,48 @@ function getContacts (userId) {
 ]
 */
 function getGroups (userId) {
-  return [];
+  const user = data.users[userId] || {};
+  const groups = user.groups;
+
+  return groups.reduce((acc, grp) => {
+    return acc = [
+      ...acc,
+      {
+        id: grp,
+        ...data.groups[grp]
+      }
+    ]
+  }, []);
+}
+
+/** Format
+{
+  "id": "",
+  "name": "",
+  "description": "",
+  "avatar": "",
+  "groupType": "",
+  "lastMessage": "",
+  "members": {
+    "usr1": "admin",
+    "usr2": "admin",
+    "usr3": "member"
+  }
+}
+*/
+function getGroup (userId, groupId) {
+  const group = data.groups[groupId];
+  const user = data.users[userId] || {};
+  const isInGroup = user.groups.some(grp => grp === groupId);
+
+  if(isInGroup) {
+    return {
+      id: groupId,
+      ...group
+    }
+  } else {
+    return {};
+  }
 }
 
 /** Format
@@ -125,4 +124,4 @@ function getChat (userId, groupId) {
   }
 }
 
-export { loadData, getUser, getUsers, getContacts, getGroups, getChat }
+export { getUser, getUsers, getContacts, getGroups, getGroup, getChat }

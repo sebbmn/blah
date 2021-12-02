@@ -1,20 +1,20 @@
 <script>
-import { data } from '../store/stores.js';
+import { groups } from '../store/stores.js';
+import { getGroups } from "../store/utils";
 import GroupList from '../lib/GroupList.svelte';
 import MainMenubar from '../lib/MainMenubar.svelte';
 
-let groups;
-
-data.subscribe(value => {
-  groups = value.groups;
-});
+function getGroupList() {
+  groups.set(getGroups("usr2"));
+  return $groups;
+}
 </script>
 
 <div class="left-top">
   <MainMenubar />
 </div>
 <div class="left-middle">
-  <GroupList groupList={groups}/>
+  <GroupList groupList={getGroupList()}/>
 </div>
 
 <style>
