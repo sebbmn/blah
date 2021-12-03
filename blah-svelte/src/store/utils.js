@@ -1,4 +1,4 @@
-import data from "../../data/mockData.json"
+import data from "../../data/mockData.json";
 
 /** Format
 {
@@ -49,13 +49,13 @@ function getContacts (userId) {
 */
 function getGroups (userId) {
   const user = data.users[userId] || {};
-  const groups = user.groups;
+  const groups = user.groups || [];
 
   return groups.reduce((acc, grp) => {
     return acc = [
       ...acc,
       {
-        ..._formatGroup(userId, grp, data.groups[grp])
+        ...getGroup(userId, grp)
       }
     ]
   }, []);
@@ -77,13 +77,12 @@ function getGroups (userId) {
 }
 */
 function getGroup (userId, groupId) {
-  const group = data.groups[groupId];
   const user = data.users[userId] || {};
   const isInGroup = user.groups.some(grp => grp === groupId);
 
   if(isInGroup) {
     return {
-      ..._formatGroup(userId, groupId, group)
+      ..._formatGroup(userId, groupId)
     }
   } else {
     return {};
@@ -125,11 +124,12 @@ function getChat (userId, groupId) {
   }
 }
 
-function _formatGroup (userId, groupId, group) {
+function _formatGroup (userId, groupId) {
+  const group = data.groups[groupId] || {};
   const isDialog = group.groupType === "dialog";
 
   if(isDialog) {
-    const users = group.members;
+    const users = group.members || {};
     let interlocutor = {};
 
     for (const usr in users) {
@@ -137,7 +137,8 @@ function _formatGroup (userId, groupId, group) {
         interlocutor = getUser(usr);
       }
     }
-    group.name = interlocutor.name
+    group.name = interlocutor.name || "";
+    group.avatar = interlocutor.avatar || "";
   }
 
   return {

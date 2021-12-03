@@ -49,7 +49,7 @@
     "grp1": {
       "name": "Barksdale Organization",
       "description": "Drug-dealing gang in West Baltimore",
-      "avatar": "<url>",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/7/72/Barksdale2.jpg",
       "groupType": "group",
       "lastMessage": "There’s always gonna be a Marlo, man. No Marlo, no game",
       "members": {
