@@ -9,13 +9,14 @@ import data from "../../data/mockData.json"
 }
 */
 function getUser (userId) {
-  return {};
+  const user = data.users[userId] || {};
+  return user;
 }
 
 /** Format
 [<usr_id>, ...]
 */
-function getUsers (userId) {
+function getUsers () {
   return [];
 }
 
@@ -23,7 +24,9 @@ function getUsers (userId) {
 [<usr_id>, ...]
 */
 function getContacts (userId) {
-  return [];
+  const user = data.users[userId] || {};
+  const contacts = user.contacts || [];
+  return contacts;
 }
 
 /** Format
@@ -52,8 +55,7 @@ function getGroups (userId) {
     return acc = [
       ...acc,
       {
-        id: grp,
-        ...data.groups[grp]
+        ..._formatGroup(userId, grp, data.groups[grp])
       }
     ]
   }, []);
@@ -81,8 +83,7 @@ function getGroup (userId, groupId) {
 
   if(isInGroup) {
     return {
-      id: groupId,
-      ...group
+      ..._formatGroup(userId, groupId, group)
     }
   } else {
     return {};
@@ -122,6 +123,27 @@ function getChat (userId, groupId) {
   } else {
     return [];
   }
+}
+
+function _formatGroup (userId, groupId, group) {
+  const isDialog = group.groupType === "dialog";
+
+  if(isDialog) {
+    const users = group.members;
+    let interlocutor = {};
+
+    for (const usr in users) {
+      if (usr !== userId) {
+        interlocutor = getUser(usr);
+      }
+    }
+    group.name = interlocutor.name
+  }
+
+  return {
+    id: groupId,
+    ...group
+  };
 }
 
 export { getUser, getUsers, getContacts, getGroups, getGroup, getChat }
