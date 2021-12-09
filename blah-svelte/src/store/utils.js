@@ -90,15 +90,17 @@ function getGroup (userId, groupId) {
 }
 
 /** Format
-[
-  {
-    "id": "",
-    "user": "",
-    "message": "",
-    "timestamp": ""
-  },
-  ...
-]
+{
+  "id": "grp1",
+  "messages": [
+    {
+      "id": "msg1"
+      "user": {},
+      "message": "",
+      "timestamp": 0
+    }
+  ]
+}
 */
 function getChat (userId, groupId) {
   const chat = data.chats[groupId];
@@ -107,14 +109,18 @@ function getChat (userId, groupId) {
 
   if(isInGroup) {
     const messages = Object.entries(chat);
-    let formatedChat = [];
+    let formatedChat = {
+      id: groupId,
+      messages: []
+    };
 
     for (const [key, value] of messages) {
-      formatedChat = [
-        ...formatedChat,
+      formatedChat.messages = [
+        ...formatedChat.messages,
         {
           id: key,
-          ...value
+          ...value,
+          user: data.users[value.user]
         }
       ]
     }

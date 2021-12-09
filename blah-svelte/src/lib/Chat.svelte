@@ -2,14 +2,17 @@
 import { WiredCard } from 'wired-elements';
 import MessageInput from './MessageInput.svelte';
 
-export let messages;
+export let chat;
 
 </script>
 
 <wired-card elevation="2" class="chat">
   <div class="chat-top">
-    <p>chat</p>
-    {#each messages as msg}
+    <p>{chat.id}</p>
+    {#each chat.messages as msg}
+      <p>
+        {msg.user.name}
+      </p>
       <p>
         {msg.message}
       </p>

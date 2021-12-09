@@ -10,7 +10,7 @@ function getGroupInfos(id) {
   return $currentGroup;
 }
 
-function getMessages(id) {
+function getCurrentChat(id) {
   currentChat.set(getChat("usr2", id));
   return $currentChat;
 }
@@ -22,7 +22,7 @@ function getMessages(id) {
       <GroupMenubar group={getGroupInfos(params.id)}/>
   </div>
   <div class="center-middle">
-      <Chat messages={getMessages(params.id)}/>
+      <Chat chat={getCurrentChat(params.id)}/>
   </div>
 </Route>
 <style>
