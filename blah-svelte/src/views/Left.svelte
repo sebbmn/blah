@@ -1,11 +1,11 @@
 <script>
-import { groups } from '../store/stores.js';
+import { groups, currentUser } from '../store/stores.js';
 import { getGroups } from "../store/utils";
 import GroupList from '../lib/GroupList.svelte';
 import MainMenubar from '../lib/MainMenubar.svelte';
 
 function getGroupList() {
-  groups.set(getGroups("usr2"));
+  groups.set(getGroups($currentUser));
   return $groups;
 }
 </script>

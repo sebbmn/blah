@@ -11,11 +11,11 @@ export let chat;
     <p>{chat.id}</p>
     {#each chat.messages as msg}
       <p>
-        {msg.user.name}
+        <u>{msg.user.name}</u>
       </p>
-      <p>
+      <wired-card>
         {msg.message}
-      </p>
+      </wired-card>
     {/each}
   </div>
   <div class="chat-bottom">
@@ -31,6 +31,9 @@ export let chat;
 
   p {
     width: 100%;
+    u {
+      text-decoration: #f00 wavy underline;
+    }
   }
 
   &-top {

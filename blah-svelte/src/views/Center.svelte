@@ -1,17 +1,17 @@
 <script>
-import { currentGroup, currentChat } from '../store/stores.js';
+import { currentGroup, currentChat, currentUser } from '../store/stores.js';
 import { getChat, getGroup } from "../store/utils";
 import { Route } from "svelte-navigator";
 import GroupMenubar from '../lib/GroupMenubar.svelte';
 import Chat from '../lib/Chat.svelte';
 
 function getGroupInfos(id) {
-  currentGroup.set(getGroup("usr2", id))
+  currentGroup.set(getGroup($currentUser, id))
   return $currentGroup;
 }
 
 function getCurrentChat(id) {
-  currentChat.set(getChat("usr2", id));
+  currentChat.set(getChat($currentUser, id));
   return $currentChat;
 }
 
