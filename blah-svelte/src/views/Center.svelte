@@ -4,6 +4,7 @@ import { getChat, getGroup } from "../store/utils";
 import { Route } from "svelte-navigator";
 import GroupMenubar from '../lib/GroupMenubar.svelte';
 import Chat from '../lib/Chat.svelte';
+import MessageInput from '../lib/MessageInput.svelte';
 
 function getGroupInfos(id) {
   currentGroup.set(getGroup($currentUser, id))
@@ -24,6 +25,9 @@ function getCurrentChat(id) {
   <div class="center-middle">
       <Chat chat={getCurrentChat(params.id)}/>
   </div>
+  <div class="center-bottom">
+    <MessageInput />
+  </div>
 </Route>
 <style>
 .center-top {
@@ -36,7 +40,14 @@ function getCurrentChat(id) {
 .center-middle {
   border: 1px solid white;
   border-radius: 10px;
-  height: calc(100% - 78px);
+  height: calc(100% - 155px);
+  padding: 5px;
+}
+
+.center-bottom {
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 62px;
   padding: 5px;
 }
 </style>

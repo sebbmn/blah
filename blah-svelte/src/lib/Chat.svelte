@@ -1,50 +1,38 @@
 <script>
 import { WiredCard } from 'wired-elements';
-import MessageInput from './MessageInput.svelte';
 
 export let chat;
 
 </script>
 
-<wired-card elevation="2" class="chat">
-  <div class="chat-top">
-    <p>{chat.id}</p>
-    {#each chat.messages as msg}
-      <p>
-        <u>{msg.user.name}</u>
-      </p>
-      <wired-card>
-        {msg.message}
-      </wired-card>
-    {/each}
-  </div>
-  <div class="chat-bottom">
-    <MessageInput />
-  </div>
-</wired-card>
+<div class="chat">
+  <p>{chat.id}</p>
+  {#each chat.messages as msg}
+  <p>
+    <u>{msg.user.name}</u>
+  </p>
+  <wired-card>
+    {msg.message}
+  </wired-card>
+  {/each}
+</div>
 
 <style lang="scss">
 .chat {
-  width: calc(100% - 20px);
-  height: calc(100% - 20px);
-  position: relative;
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  margin: 8px;
+  padding: 7px;
+  border-radius: 10px;
+  background-image: radial-gradient(circle, #c9c7c7 1px, transparent 0%);
+  background-size: 15px 15px;
+  overflow-x: hidden;
 
   p {
     width: 100%;
     u {
       text-decoration: #f00 wavy underline;
     }
-  }
-
-  &-top {
-    width: 100%;
-    height: calc(100% - 100px);
-  }
-
-  &-bottom {
-    width: 100%;
-    height: 70px;
-    padding: 0;
   }
 }
 </style>
