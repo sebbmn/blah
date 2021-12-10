@@ -1,4 +1,4 @@
-import data from "../data/mockData.json";
+import data from "./mockData.json";
 
 /** Format
 {
@@ -16,7 +16,7 @@ function getUser (userId) {
 /** Format
 [<usr_id>, ...]
 */
-function getUsers () {
+function getUsers (userId) {
   return [];
 }
 
@@ -153,4 +153,4 @@ function _formatGroup (userId, groupId) {
   };
 }
 
-export { getUser, getUsers, getContacts, getGroups, getGroup, getChat }
+export default { getUser, getUsers, getContacts, getGroups, getGroup, getChat }

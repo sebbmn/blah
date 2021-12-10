@@ -1,6 +1,6 @@
 <script>
 import { currentGroup, currentChat, currentUser } from '../store/stores.js';
-import { getChat, getGroup } from "../store/utils";
+import { getChat, getGroup } from "../data/index";
 import { Route } from "svelte-navigator";
 import GroupMenubar from '../lib/GroupMenubar.svelte';
 import Chat from '../lib/Chat.svelte';

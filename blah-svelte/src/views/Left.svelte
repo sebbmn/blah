@@ -1,6 +1,6 @@
 <script>
 import { groups, currentUser } from '../store/stores.js';
-import { getGroups } from "../store/utils";
+import { getGroups } from "../data/index";
 import GroupList from '../lib/GroupList.svelte';
 import MainMenubar from '../lib/MainMenubar.svelte';
 
