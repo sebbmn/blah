@@ -3,8 +3,8 @@
   import { WiredIconButton } from 'wired-elements';
 </script>
   
-<wired-card elevation="2" class="main-menubar">
-  <div class="main-menubar-container">
+<wired-card elevation="2" class="blah-main-menubar">
+  <div class="blah-main-menubar__container">
     <wired-icon-button>
       <mwc-icon>person</mwc-icon>
     </wired-icon-button>
@@ -13,21 +13,23 @@
   </div>
 </wired-card>
   
-<style>
-.main-menubar {
+<style lang="scss">
+.blah-main-menubar {
   width: 100%;
   height: 100%;
   padding: 0;
-}
-.main-menubar-container {
-  width: calc(100% - 20px);
-  height: calc(100% -4px);
-  padding:  4px 10px 0 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.main-menubar-icon {
-  cursor: pointer;
+
+  &__container {
+    width: calc(100% - 20px);
+    height: calc(100% - 4px);
+    padding:  4px 10px 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .main-menubar-icon {
+      cursor: pointer;
+    }
+  }
 }
 </style>

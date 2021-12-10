@@ -10,22 +10,22 @@ function getGroupList() {
 }
 </script>
 
-<div class="left-top">
+<div class="blah-left-top">
   <MainMenubar />
 </div>
-<div class="left-middle">
+<div class="blah-left-middle">
   <GroupList groupList={getGroupList()}/>
 </div>
 
 <style>
-.left-top {
+.blah-left-top {
   border: 1px solid white;
   border-radius: 10px;
   height: 58px;
   padding: 5px;
 }
 
-.left-middle {
+.blah-left-middle {
   border: 1px solid white;
   border-radius: 10px;
   height: calc(100% - 78px);

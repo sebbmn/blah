@@ -6,8 +6,8 @@
   export let group;
 </script>
   
-<wired-card elevation="2" class="group-menubar">
-  <div class="group-menubar-container">
+<wired-card elevation="2" class="blah-group-menubar">
+  <div class="blah-group-menubar__container">
     <Avatar image={{src: group.avatar, alt: group.name}} />
     <p>{group.name}</p>
     <mwc-icon class="group-menubar-icon">more_vert</mwc-icon>
@@ -15,24 +15,25 @@
 </wired-card>
   
 <style lang="scss">
-.group-menubar {
+.blah-group-menubar {
   width: 100%;
   height: 100%;
   padding: 0;
-}
-.group-menubar-container {
-  width: calc(100% - 25px);
-  height: 58px;
-  padding:  0 10px 0 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  &__container {
+    width: calc(100% - 25px);
+    height: 58px;
+    padding:  0 10px 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-  p {
-    margin: 0;
+    p {
+      margin: 0;
+    }
+
+    .group-menubar-icon {
+      cursor: pointer;
+    }
   }
-}
-.group-menubar-icon {
-  cursor: pointer;
 }
 </style>

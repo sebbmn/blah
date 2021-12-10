@@ -7,27 +7,20 @@ import Avatar from './Avatar.svelte'
 
 export let groupList;
 
-let id = 4;
-
 function addGroup(e) {
   console.log(e)
-  /* groupList.push({
-    id: id++,
-    name: "another one bites the dust"
-  })
-  groupList = groupList; */
 }
 </script>
 
-<wired-card elevation="2" class="group-list">
+<wired-card elevation="2" class="blah-group-list">
   Groups
-  <wired-icon-button class="add-group" on:click={addGroup}>
+  <wired-icon-button class="blah-group-list__add-group" on:click={addGroup}>
     <mwc-icon>add</mwc-icon>
   </wired-icon-button>
-  <wired-listbox selected="two" class="group-listbox">
+  <wired-listbox selected="two" class="blah-group-list__listbox">
     {#each groupList as group}
       <wired-item value={group.id} on:click="{() => navigate(`/group/${group.id}`)}">
-        <div class="group-listbox__item">
+        <div class="blah-group-list__listbox--item">
           <Avatar image={{src: group.avatar, alt: group.name}} />
           <div class="group-name">{group.name}</div>
         </div>
@@ -37,10 +30,10 @@ function addGroup(e) {
 </wired-card>
 
 <style lang="scss">
-.group-list {
+.blah-group-list {
   width: calc(100% - 20px);
   height: calc(100% - 20px);
-  .group-listbox {
+  &__listbox {
     max-height: calc(80vh - 20px);
     overflow-y: auto;
     overflow-x: hidden;
@@ -48,7 +41,7 @@ function addGroup(e) {
     width: calc(100% - 10px);
 
 
-    &__item {
+    &--item {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -59,7 +52,7 @@ function addGroup(e) {
       }
     }
   }
-  .add-group {
+  &__add-group {
     position:absolute;
     left: 0;
     top: 0;

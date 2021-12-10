@@ -19,32 +19,32 @@ function getCurrentChat(id) {
 </script>
 
 <Route path="/group/:id" let:params primary={false}>
-  <div class="center-top">
+  <div class="blah-center-top">
       <GroupMenubar group={getGroupInfos(params.id)}/>
   </div>
-  <div class="center-middle">
+  <div class="blah-center-middle">
       <Chat chat={getCurrentChat(params.id)}/>
   </div>
-  <div class="center-bottom">
+  <div class="blah-center-bottom">
     <MessageInput />
   </div>
 </Route>
 <style>
-.center-top {
+.blah-center-top {
   border: 1px solid white;
   border-radius: 10px;
   height: 58px;
   padding: 5px;
 }
 
-.center-middle {
+.blah-center-middle {
   border: 1px solid white;
   border-radius: 10px;
   height: calc(100% - 155px);
   padding: 5px;
 }
 
-.center-bottom {
+.blah-center-bottom {
   border: 1px solid white;
   border-radius: 10px;
   height: 62px;

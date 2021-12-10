@@ -5,7 +5,7 @@ export let chat;
 
 </script>
 
-<div class="chat">
+<div class="blah-chat">
   <p>{chat.id}</p>
   {#each chat.messages as msg}
   <p>
@@ -18,7 +18,7 @@ export let chat;
 </div>
 
 <style lang="scss">
-.chat {
+.blah-chat {
   width: calc(100% - 30px);
   height: calc(100% - 30px);
   margin: 8px;
