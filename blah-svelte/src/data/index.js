@@ -3,7 +3,7 @@ import data from "./local"
 /** USERS */
 /*
 */
-function createUser (user) {
+function createUser(user) {
   return;
 }
 
@@ -15,26 +15,26 @@ function createUser (user) {
   "contacts": [<usr_id>, ...]
 }
 */
-function getUser (userId) {
+function getUser(userId) {
   return data.getUser(userId);
 }
 
 /*
 [<usr_id>, ...]
 */
-function getUsers (userId) {
+function getUsers(userId) {
   return data.getUsers(userId);
 }
 
 /*
 */
-function updateUser (userId) {
+function updateUser(userId) {
   return;
 }
 
 /*
 */
-function deleteUser (userId) {
+function deleteUser(userId) {
   return;
 }
 
@@ -42,26 +42,26 @@ function deleteUser (userId) {
 /*
 [<usr_id>, ...]
 */
-function getContacts (userId) {
+function getContacts(userId) {
   return data.getContacts(userId);
 }
 
 /*
 */
-function addContact (userId, contactId) {
+function addContact(userId, contactId) {
   return;
 }
 
 /*
 */
-function removeContact (userId, contactId) {
+function removeContact(userId, contactId) {
   return;
 }
 
 /** GROUPS */
 /*
 */
-function createGroup (userId, groupId) {
+function createGroup(userId, groupId) {
   return;
 }
 
@@ -80,57 +80,57 @@ function createGroup (userId, groupId) {
   }
 }
 */
-function getGroup (userId, groupId) {
+function getGroup(userId, groupId) {
   return data.getGroup(userId, groupId);
 }
 
 /*
 []
 */
-function getGroups (userId) {
+function getGroups(userId) {
   return data.getGroups(userId);
 }
 
 /*
 */
-function updateGroup (group) {
+function updateGroup(group) {
   return;
 }
 
 /*
 */
-function deleteGroup (groupId) {
+function deleteGroup(groupId) {
   return;
 }
 
 /*
 */
-function getChat (userId, groupId) {
+function getChat(userId, groupId) {
   return data.getChat(userId, groupId);
 }
 
 /* MESSAGES */
 /*
 */
-function createMessage (message, groupId) {
+function createMessage(message, groupId) {
   return;
 }
 
 /*
 */
-function getMessage (messageId) {
+function getMessage(messageId) {
   return;
 }
 
 /*
 */
-function updateMessage (message) {
+function updateMessage(message) {
   return;
 }
 
 /*
 */
-function deleteMessage (messageId) {
+function deleteMessage(messageId) {
   return;
 }
 

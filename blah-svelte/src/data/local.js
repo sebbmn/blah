@@ -8,7 +8,7 @@ import data from "./mockData.json";
   "contacts": [<usr_id>, ...]
 }
 */
-function getUser (userId) {
+function getUser(userId) {
   const user = data.users[userId] || {};
   return user;
 }
@@ -16,14 +16,14 @@ function getUser (userId) {
 /** Format
 [<usr_id>, ...]
 */
-function getUsers (userId) {
+function getUsers(userId) {
   return [];
 }
 
 /** Format
 [<usr_id>, ...]
 */
-function getContacts (userId) {
+function getContacts(userId) {
   const user = data.users[userId] || {};
   const contacts = user.contacts || [];
   return contacts;
@@ -47,7 +47,7 @@ function getContacts (userId) {
   ...
 ]
 */
-function getGroups (userId) {
+function getGroups(userId) {
   const user = data.users[userId] || {};
   const groups = user.groups || [];
 
@@ -76,7 +76,7 @@ function getGroups (userId) {
   }
 }
 */
-function getGroup (userId, groupId) {
+function getGroup(userId, groupId) {
   const user = data.users[userId] || {};
   const isInGroup = user.groups.some(grp => grp === groupId);
 
@@ -102,7 +102,7 @@ function getGroup (userId, groupId) {
   ]
 }
 */
-function getChat (userId, groupId) {
+function getChat(userId, groupId) {
   const chat = data.chats[groupId];
   const user = data.users[userId] || {};
   const isInGroup = user.groups.some(grp => grp === groupId);
@@ -130,7 +130,7 @@ function getChat (userId, groupId) {
   }
 }
 
-function _formatGroup (userId, groupId) {
+function _formatGroup(userId, groupId) {
   const group = data.groups[groupId] || {};
   const isDialog = group.groupType === "dialog";
 
