@@ -4,11 +4,12 @@
 import '@material/mwc-icon';
 import { WiredToggle } from 'wired-elements';
 import { Router } from "svelte-navigator";
-import Left from './views/Left.svelte';
-import Center from './views/Center.svelte';
-import Right from './views/Right.svelte';
+import Left from './views/desktop/Left.svelte';
+import Center from './views/desktop/Center.svelte';
+import Right from './views/desktop/Right.svelte';
 
 let displayRight = false;
+let isMobile = window.innerWidth < 700;
 
 /* function toggleRightPanel() {
   displayRight = !displayRight;
@@ -18,23 +19,27 @@ let displayRight = false;
 <Router>
   <main>
     <!--<wired-toggle on:change={toggleRightPanel}></wired-toggle>-->
-    <div id="blah-layout">
-      <div class="blah-layout-left">
-        <Left />
+    {#if isMobile}
+      <div id="blah-layout">Mobile display here ...</div>
+    {:else}
+      <div id="blah-layout">
+        <div class="blah-layout-left">
+          <Left />
+        </div>
+        {#if displayRight}
+          <div class="blah-layout-center">
+            <Center />
+          </div>
+          <div class="blah-layout-right">
+            <Right />
+          </div>
+        {:else}
+          <div class="blah-layout-center-extended">
+            <Center />
+          </div>
+        {/if}
       </div>
-      {#if displayRight}
-        <div class="blah-layout-center">
-          <Center />
-        </div>
-        <div class="blah-layout-right">
-          <Right />
-        </div>
-      {:else}
-        <div class="blah-layout-center-extended">
-          <Center />
-        </div>
-      {/if}
-    </div>
+    {/if}
   </main>
 </Router>
 

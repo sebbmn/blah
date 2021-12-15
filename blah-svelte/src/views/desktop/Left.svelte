@@ -1,8 +1,8 @@
 <script>
-import { groups, currentUser } from '../store/stores.js';
-import { getGroups } from "../data/index";
-import GroupList from '../lib/GroupList.svelte';
-import MainMenubar from '../lib/MainMenubar.svelte';
+import { groups, currentUser } from '../../store/stores.js';
+import { getGroups } from "../../data/index";
+import GroupList from '../../lib/GroupList.svelte';
+import MainMenubar from '../../lib/MainMenubar.svelte';
 
 function getGroupList() {
   groups.set(getGroups($currentUser));
