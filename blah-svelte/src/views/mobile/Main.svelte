@@ -1,0 +1,34 @@
+<script>
+  import { groups, currentUser } from '../../store/stores.js';
+  import { getGroups } from "../../data/index";
+  import GroupList from '../../lib/GroupList.svelte';
+  import MainMenubar from '../../lib/MainMenubar.svelte';
+  
+  function getGroupList() {
+    groups.set(getGroups($currentUser));
+    return $groups;
+  }
+  </script>
+  
+  <div class="blah-mobile-top">
+    <MainMenubar />
+  </div>
+  <div class="blah-mobile-middle">
+    <GroupList groupList={getGroupList()}/>
+  </div>
+  
+  <style>
+  .blah-mobile-top {
+    border: 1px solid white;
+    border-radius: 10px;
+    height: 58px;
+    padding: 5px;
+  }
+  
+  .blah-mobile-middle {
+    border: 1px solid white;
+    border-radius: 10px;
+    height: calc(100% - 78px);
+    padding: 5px;
+  }
+  </style>

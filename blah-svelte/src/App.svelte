@@ -7,6 +7,7 @@ import { Router } from "svelte-navigator";
 import Left from './views/desktop/Left.svelte';
 import Center from './views/desktop/Center.svelte';
 import Right from './views/desktop/Right.svelte';
+import Mobile from './views/mobile/Main.svelte';
 
 let displayRight = false;
 let isMobile = window.innerWidth < 700;
@@ -20,7 +21,11 @@ let isMobile = window.innerWidth < 700;
   <main>
     <!--<wired-toggle on:change={toggleRightPanel}></wired-toggle>-->
     {#if isMobile}
-      <div id="blah-layout">Mobile display here ...</div>
+      <div id="blah-layout">
+        <div class="blah-layout-mobile">
+          <Mobile />
+        </div>
+      </div>
     {:else}
       <div id="blah-layout">
         <div class="blah-layout-left">
@@ -73,5 +78,10 @@ main {
 .blah-layout-right {
   border-radius: 10px;
   width: 350px;
+}
+
+.blah-layout-mobile {
+  border-radius: 10px;
+  width: 100%;
 }
 </style>
