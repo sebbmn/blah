@@ -20,7 +20,7 @@ function getCurrentChat(id) {
 
 <Route path="/group/:id" let:params primary={false}>
   <div class="blah-center-top">
-      <GroupMenubar group={getGroupInfos(params.id)}/>
+      <GroupMenubar group={getGroupInfos(params.id)} isMobile={false}/>
   </div>
   <div class="blah-center-middle">
       <Chat chat={getCurrentChat(params.id)}/>
