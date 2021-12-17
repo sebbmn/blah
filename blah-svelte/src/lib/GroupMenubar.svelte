@@ -1,16 +1,24 @@
 <script>
-  import { navigate } from "svelte-navigator";
-  import { WiredCard, WiredIconButton } from 'wired-elements';
-  import Avatar from './Avatar.svelte'
+import { createEventDispatcher } from 'svelte';
+import { WiredCard, WiredIconButton } from 'wired-elements';
+import Avatar from './Avatar.svelte'
 
-  export let group;
-  export let isMobile = false;
+export let group;
+export let isMobile = false;
+
+const dispatch = createEventDispatcher();
+
+function navigateBack() {
+  dispatch('navigateBack', {
+    text: 'navigate back'
+  });
+}
 </script>
   
 <wired-card elevation="2" class="blah-group-menubar">
   <div class="blah-group-menubar__container">
     {#if isMobile}
-      <mwc-icon class="blah-group-menubar__icon" on:click="{() => navigate('/')}">arrow_back</mwc-icon>
+      <mwc-icon class="blah-group-menubar__icon" on:click="{navigateBack}">arrow_back</mwc-icon>
     {/if}
     <Avatar image={{src: group.avatar, alt: group.name}} />
     <p>{group.name}</p>

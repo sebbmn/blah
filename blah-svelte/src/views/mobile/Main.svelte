@@ -1,5 +1,5 @@
 <script>
-import { Route } from "svelte-navigator";
+import { Route, navigate } from "svelte-navigator";
 import { getGroups, getChat, getGroup } from "../../data/index";
 import { groups, currentGroup, currentChat, currentUser } from '../../store/stores.js';
 import MainMenubar from '../../lib/MainMenubar.svelte';
@@ -35,7 +35,7 @@ function getCurrentChat(id) {
 
 <Route path="/group/:id" let:params primary={false}>
   <div class="blah-mobile-top">
-      <GroupMenubar group={getGroupInfos(params.id)} isMobile={true}/>
+      <GroupMenubar group={getGroupInfos(params.id)} isMobile={true} on:navigateBack="{() => navigate('/')}"/>
   </div>
   <div class="blah-mobile-middle">
       <Chat chat={getCurrentChat(params.id)}/>
