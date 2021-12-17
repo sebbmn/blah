@@ -2,18 +2,17 @@
 import { WiredCard } from 'wired-elements';
 
 export let chat;
-
 </script>
 
 <div class="blah-chat">
   <p>{chat.id}</p>
   {#each chat.messages as msg}
-  <p>
-    <u>{msg.user.name}</u>
-  </p>
-  <wired-card>
-    {msg.message}
-  </wired-card>
+    <p>
+      <u>{msg.user.name}</u>
+    </p>
+    <wired-card>
+      {msg.message}
+    </wired-card>
   {/each}
 </div>
 

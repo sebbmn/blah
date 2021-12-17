@@ -1,6 +1,5 @@
 <script>
-  import { WiredCard } from 'wired-elements';
-  import { WiredIconButton } from 'wired-elements';
+  import { WiredCard, WiredIconButton } from 'wired-elements';
 </script>
   
 <wired-card elevation="2" class="blah-main-menubar">
@@ -9,7 +8,7 @@
       <mwc-icon>person</mwc-icon>
     </wired-icon-button>
     <p>menu bar</p>
-    <mwc-icon class="main-menubar-icon">more_vert</mwc-icon>
+    <mwc-icon class="blah-main-menubar__icon">more_vert</mwc-icon>
   </div>
 </wired-card>
   
@@ -26,10 +25,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
 
-    .main-menubar-icon {
-      cursor: pointer;
-    }
+  &__icon {
+    cursor: pointer;
   }
 }
 </style>

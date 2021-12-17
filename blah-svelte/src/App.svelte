@@ -2,8 +2,8 @@
 <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
 <script>
 import '@material/mwc-icon';
-import { WiredToggle } from 'wired-elements';
 import { Router } from "svelte-navigator";
+import { WiredToggle } from 'wired-elements';
 import Left from './views/desktop/Left.svelte';
 import Center from './views/desktop/Center.svelte';
 import Right from './views/desktop/Right.svelte';
@@ -49,7 +49,7 @@ let isMobile = window.innerWidth < 700;
 </Router>
 
 
-<style>
+<style lang="scss">
 main {
   text-align: center;
   font-family: "Gloria Hallelujah", cursive;
@@ -61,27 +61,30 @@ main {
   margin: 0 auto;
   display: flex;
 }
-.blah-layout-left {
-  border-radius: 10px;
-  width: 350px;
-}
+.blah-layout {
+  &-left {
+    border-radius: 10px;
+    width: 350px;
+  }
 
-.blah-layout-center {
-  border-radius: 10px;
-  width: calc(100% - 700px);
-}
-.blah-layout-center-extended {
-  border-radius: 10px;
-  width: calc(100% - 350px);
-}
+  &-center {
+    border-radius: 10px;
+    width: calc(100% - 700px);
+  }
 
-.blah-layout-right {
-  border-radius: 10px;
-  width: 350px;
-}
+  &-center-extended {
+    border-radius: 10px;
+    width: calc(100% - 350px);
+  }
 
-.blah-layout-mobile {
-  border-radius: 10px;
-  width: 100%;
+  &-right {
+    border-radius: 10px;
+    width: 350px;
+  }
+
+  &-mobile {
+    border-radius: 10px;
+    width: 100%;
+  }
 }
 </style>

@@ -1,7 +1,7 @@
 <script>
 import { Route } from "svelte-navigator";
-import { groups, currentGroup, currentChat, currentUser } from '../../store/stores.js';
 import { getGroups, getChat, getGroup } from "../../data/index";
+import { groups, currentGroup, currentChat, currentUser } from '../../store/stores.js';
 import MainMenubar from '../../lib/MainMenubar.svelte';
 import GroupList from '../../lib/GroupList.svelte';
 import GroupMenubar from '../../lib/GroupMenubar.svelte';
@@ -22,7 +22,6 @@ function getCurrentChat(id) {
   currentChat.set(getChat($currentUser, id));
   return $currentChat;
 }
-
 </script>
 
 <Route path="/" let:params primary={false}>

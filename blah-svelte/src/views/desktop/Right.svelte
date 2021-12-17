@@ -14,23 +14,25 @@ import { WiredCard } from 'wired-elements';
 </div>
 
 <style lang="scss">
-.blah-right-top {
-  border: 1px solid white;
-  border-radius: 10px;
-  height: 58px;
-  padding: 5px;
-}
+.blah-right {
+  &-top {
+    border: 1px solid white;
+    border-radius: 10px;
+    height: 58px;
+    padding: 5px;
+  }
 
-.blah-right-middle {
-  border: 1px solid white;
-  border-radius: 10px;
-  height: calc(100% - 78px);
-  padding: 5px;
+  &-middle {
+    border: 1px solid white;
+    border-radius: 10px;
+    height: calc(100% - 78px);
+    padding: 5px;
 
-  &__card {
-    width: 100%;
-    height: 100%;
-    padding: 0;
+    &__card {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+    }
   }
 }
 </style>

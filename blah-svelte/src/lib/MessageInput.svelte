@@ -1,6 +1,5 @@
 <script>
 import { WiredCard, WiredInput, WiredIconButton } from 'wired-elements';
-
 </script>
 
 <wired-card elevation="2" class="blah-message-input">

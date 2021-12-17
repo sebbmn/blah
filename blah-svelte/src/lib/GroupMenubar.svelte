@@ -1,7 +1,6 @@
 <script>
   import { navigate } from "svelte-navigator";
-  import { WiredCard } from 'wired-elements';
-  import { WiredIconButton } from 'wired-elements';
+  import { WiredCard, WiredIconButton } from 'wired-elements';
   import Avatar from './Avatar.svelte'
 
   export let group;
@@ -11,11 +10,11 @@
 <wired-card elevation="2" class="blah-group-menubar">
   <div class="blah-group-menubar__container">
     {#if isMobile}
-      <mwc-icon class="group-menubar-icon" on:click="{() => navigate('/')}">arrow_back</mwc-icon>
+      <mwc-icon class="blah-group-menubar__icon" on:click="{() => navigate('/')}">arrow_back</mwc-icon>
     {/if}
     <Avatar image={{src: group.avatar, alt: group.name}} />
     <p>{group.name}</p>
-    <mwc-icon class="group-menubar-icon">more_vert</mwc-icon>
+    <mwc-icon class="blah-group-menubar__icon">more_vert</mwc-icon>
   </div>
 </wired-card>
   
@@ -35,10 +34,10 @@
     p {
       margin: 0;
     }
+  }
 
-    .group-menubar-icon {
-      cursor: pointer;
-    }
+&__icon {
+    cursor: pointer;
   }
 }
 </style>

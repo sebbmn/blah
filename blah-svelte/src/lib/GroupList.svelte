@@ -1,8 +1,6 @@
 <script>
-import { WiredCard } from 'wired-elements';
-import { WiredListbox } from 'wired-elements';
-import { WiredIconButton } from 'wired-elements';
 import { navigate } from "svelte-navigator";
+import { WiredCard, WiredListbox, WiredIconButton } from 'wired-elements';
 import Avatar from './Avatar.svelte'
 
 export let groupList;
@@ -39,7 +37,6 @@ function addGroup(e) {
     overflow-x: hidden;
     margin-top: 20px;
     width: calc(100% - 10px);
-
 
     &--item {
       display: flex;
