@@ -12,6 +12,10 @@ import Mobile from './views/mobile/Main.svelte';
 let displayRight = false;
 let isMobile = window.innerWidth < 700;
 
+window.addEventListener('resize', () => {
+  isMobile = window.innerWidth < 700;
+});
+
 /* function toggleRightPanel() {
   displayRight = !displayRight;
 } */
