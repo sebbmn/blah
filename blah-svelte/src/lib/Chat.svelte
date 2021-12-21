@@ -1,10 +1,19 @@
 <script>
+import { onMount } from 'svelte';
 import { WiredCard } from 'wired-elements';
 
 export let chat;
+
+let chatDiv;
+
+onMount(() => {
+  setTimeout(() => {
+    chatDiv.scrollTop = chatDiv.scrollHeight;
+  }, 1);
+});
 </script>
 
-<div class="blah-chat">
+<div class="blah-chat" bind:this={chatDiv}>
   <p>{chat.id}</p>
   {#each chat.messages as msg}
     <p>
