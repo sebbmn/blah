@@ -1,12 +1,15 @@
 <script>
+import { createEventDispatcher } from 'svelte';
 import { navigate } from "svelte-navigator";
 import { WiredCard, WiredListbox, WiredIconButton } from 'wired-elements';
 import Avatar from './Avatar.svelte'
 
 export let groupList;
 
+const dispatch = createEventDispatcher();
+
 function addGroup(e) {
-  console.log(e)
+  dispatch('addGroup', {});
 }
 </script>
 

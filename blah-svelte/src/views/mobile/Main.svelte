@@ -1,4 +1,5 @@
 <script>
+import { onMount } from 'svelte';
 import { Route, navigate } from "svelte-navigator";
 import { getGroups, getChat, getGroup } from "../../data/index";
 import { groups, currentGroup, currentChat, currentUser } from '../../store/stores.js';
@@ -8,10 +9,9 @@ import GroupMenubar from '../../lib/GroupMenubar.svelte';
 import Chat from '../../lib/Chat.svelte';
 import MessageInput from '../../lib/MessageInput.svelte';
 
-function getGroupList() {
+onMount(async () => {
   groups.set(getGroups($currentUser));
-  return $groups;
-}
+});
 
 function getGroupInfos(id) {
   currentGroup.set(getGroup($currentUser, id))
@@ -22,6 +22,10 @@ function getCurrentChat(id) {
   currentChat.set(getChat($currentUser, id));
   return $currentChat;
 }
+
+function addGroup(e) {
+  groups.update(groups => [...groups, {id: "id", name:"new group", avatar: "https://svelte.dev/svelte-logo-horizontal.svg"}]);
+}
 </script>
 
 <Route path="/" let:params primary={false}>
@@ -29,7 +33,7 @@ function getCurrentChat(id) {
     <MainMenubar />
   </div>
   <div class="blah-mobile-middle-bottom">
-    <GroupList groupList={getGroupList()}/>
+    <GroupList groupList={$groups} on:addGroup={(e) => addGroup(e)}/>
   </div>
 </Route>
 
