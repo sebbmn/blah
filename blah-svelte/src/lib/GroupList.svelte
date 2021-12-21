@@ -17,11 +17,9 @@ function addGroup(e) {
   </wired-icon-button>
   <wired-listbox selected="two" class="blah-group-list__listbox">
     {#each groupList as group}
-      <wired-item value={group.id} on:click="{() => navigate(`/group/${group.id}`)}">
-        <div class="blah-group-list__listbox--item">
-          <Avatar image={{src: group.avatar, alt: group.name}} />
-          <div class="group-name">{group.name}</div>
-        </div>
+      <wired-item class="blah-group-list__listbox--item" value={group.id} on:click="{() => navigate(`/group/${group.id}`)}">
+        <Avatar image={{src: group.avatar, alt: group.name}} />&nbsp;
+        {group.name}
       </wired-item>
 	  {/each}
   </wired-listbox>
@@ -39,14 +37,9 @@ function addGroup(e) {
     width: calc(100% - 10px);
 
     &--item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 5px 0 0 0;
-
-      .group-name {
-        margin-left: 15px;
-      }
+      height: 40px;
+      font-size: 12pt;
+      padding: 5px 0 5px 0;
     }
   }
   &__add-group {
