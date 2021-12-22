@@ -9,9 +9,7 @@ export let isMobile = false;
 const dispatch = createEventDispatcher();
 
 function navigateBack() {
-  dispatch('navigateBack', {
-    text: 'navigate back'
-  });
+  dispatch('navigateBack', {});
 }
 </script>
   

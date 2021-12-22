@@ -4,6 +4,9 @@ import { getGroups } from "../../data/index";
 import { groups, currentUser } from '../../store/stores.js';
 import GroupList from '../../lib/GroupList.svelte';
 import MainMenubar from '../../lib/MainMenubar.svelte';
+import NewGroup from '../../lib/NewGroup.svelte';
+
+let showNewGroup = false;
 
 onMount(async () => {
   groups.set(getGroups($currentUser));
@@ -18,7 +21,11 @@ function addGroup(e) {
   <MainMenubar />
 </div>
 <div class="blah-left-middle">
-  <GroupList groupList={$groups} on:addGroup={(e) => addGroup(e)}/>
+  {#if showNewGroup}
+    <NewGroup contacts={[]} on:navigateBack={() => showNewGroup = false}/>
+  {:else}
+    <GroupList groupList={$groups} on:newGroup={() => showNewGroup = true}/>
+  {/if}
 </div>
 
 <style lang="scss">

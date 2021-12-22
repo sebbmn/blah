@@ -8,6 +8,9 @@ import GroupList from '../../lib/GroupList.svelte';
 import GroupMenubar from '../../lib/GroupMenubar.svelte';
 import Chat from '../../lib/Chat.svelte';
 import MessageInput from '../../lib/MessageInput.svelte';
+import NewGroup from '../../lib/NewGroup.svelte';
+
+let showNewGroup = false;
 
 onMount(async () => {
   groups.set(getGroups($currentUser));
@@ -33,7 +36,11 @@ function addGroup(e) {
     <MainMenubar />
   </div>
   <div class="blah-mobile-middle-bottom">
-    <GroupList groupList={$groups} on:addGroup={(e) => addGroup(e)}/>
+    {#if showNewGroup}
+      <NewGroup contacts={[]} on:navigateBack={() => showNewGroup = false}/>
+    {:else}
+      <GroupList groupList={$groups} on:newGroup={() => showNewGroup = true}/>
+    {/if}
   </div>
 </Route>
 

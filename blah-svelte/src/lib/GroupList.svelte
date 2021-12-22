@@ -8,18 +8,14 @@ export let groupList;
 
 const dispatch = createEventDispatcher();
 
-function addGroup(e) {
-  dispatch('addGroup', {
-    id: "id",
-    name:"new group",
-    avatar: "https://svelte.dev/svelte-logo-horizontal.svg"
-  });
+function newGroup(e) {
+  dispatch('newGroup', {});
 }
 </script>
 
 <wired-card elevation="2" class="blah-group-list">
   Groups
-  <wired-icon-button class="blah-group-list__add-group" on:click={addGroup}>
+  <wired-icon-button class="blah-group-list__add-group" on:click={newGroup}>
     <mwc-icon>add</mwc-icon>
   </wired-icon-button>
   <wired-listbox selected="two" class="blah-group-list__listbox">
