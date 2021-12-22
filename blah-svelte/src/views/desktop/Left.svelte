@@ -1,12 +1,16 @@
 <script>
+import { onMount } from 'svelte';
 import { getGroups } from "../../data/index";
 import { groups, currentUser } from '../../store/stores.js';
 import GroupList from '../../lib/GroupList.svelte';
 import MainMenubar from '../../lib/MainMenubar.svelte';
 
-function getGroupList() {
+onMount(async () => {
   groups.set(getGroups($currentUser));
-  return $groups;
+});
+
+function addGroup(e) {
+  groups.update(groups => [...groups, e.detail]);
 }
 </script>
 
@@ -14,7 +18,7 @@ function getGroupList() {
   <MainMenubar />
 </div>
 <div class="blah-left-middle">
-  <GroupList groupList={getGroupList()}/>
+  <GroupList groupList={$groups} on:addGroup={(e) => addGroup(e)}/>
 </div>
 
 <style lang="scss">

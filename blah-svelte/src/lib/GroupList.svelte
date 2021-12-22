@@ -9,7 +9,11 @@ export let groupList;
 const dispatch = createEventDispatcher();
 
 function addGroup(e) {
-  dispatch('addGroup', {});
+  dispatch('addGroup', {
+    id: "id",
+    name:"new group",
+    avatar: "https://svelte.dev/svelte-logo-horizontal.svg"
+  });
 }
 </script>
 

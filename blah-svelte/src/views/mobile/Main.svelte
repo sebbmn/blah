@@ -24,7 +24,7 @@ function getCurrentChat(id) {
 }
 
 function addGroup(e) {
-  groups.update(groups => [...groups, {id: "id", name:"new group", avatar: "https://svelte.dev/svelte-logo-horizontal.svg"}]);
+  groups.update(groups => [...groups, e.detail]);
 }
 </script>
 
