@@ -2,8 +2,6 @@
 import { createEventDispatcher } from 'svelte';
 import { WiredCard, WiredIconButton } from 'wired-elements';
 
-export let contacts;
-
 const dispatch = createEventDispatcher();
 
 function navigateBack() {

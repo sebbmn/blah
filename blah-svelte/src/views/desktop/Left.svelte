@@ -22,7 +22,7 @@ function addGroup(e) {
 </div>
 <div class="blah-left-middle">
   {#if showNewGroup}
-    <NewGroup contacts={[]} on:navigateBack={() => showNewGroup = false}/>
+    <NewGroup on:navigateBack={() => showNewGroup = false}/>
   {:else}
     <GroupList groupList={$groups} on:newGroup={() => showNewGroup = true}/>
   {/if}

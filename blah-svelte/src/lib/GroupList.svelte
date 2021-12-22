@@ -18,7 +18,8 @@ function newGroup(e) {
   <wired-icon-button class="blah-group-list__add-group" on:click={newGroup}>
     <mwc-icon>add</mwc-icon>
   </wired-icon-button>
-  <wired-listbox selected="two" class="blah-group-list__listbox">
+  <wired-listbox selected="two" class="blah-group-list__listbox"
+  style="--wired-item-selected-color: white; --wired-item-selected-bg: lightgrey;">
     {#each groupList as group}
       <wired-item class="blah-group-list__listbox--item" value={group.id} on:click="{() => navigate(`/group/${group.id}`)}">
         <Avatar image={{src: group.avatar, alt: group.name}} />&nbsp;
