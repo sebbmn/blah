@@ -25,7 +25,7 @@ function getCurrentChat(id) {
       <Chat chat={getCurrentChat(params.id)}/>
   </div>
   <div class="blah-center-bottom">
-    <MessageInput />
+    <MessageInput on:newMessage={(e) => console.log(e.detail.message)} />
   </div>
 </Route>
 
