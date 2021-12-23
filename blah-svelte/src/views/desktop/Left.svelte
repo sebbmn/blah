@@ -1,6 +1,6 @@
 <script>
 import { onMount } from 'svelte';
-import { getGroups } from "../../data/index";
+import { getGroups } from '../../store/actions';
 import { groups, currentUser } from '../../store/stores.js';
 import GroupList from '../../lib/GroupList.svelte';
 import MainMenubar from '../../lib/MainMenubar.svelte';

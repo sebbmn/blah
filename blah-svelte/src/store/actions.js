@@ -1,4 +1,4 @@
-import data from "./local"
+import data from "../data/local"
 
 /** USERS */
 /*
