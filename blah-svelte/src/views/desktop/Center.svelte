@@ -15,6 +15,10 @@ function getCurrentChat(id) {
   currentChat.set(getChat($currentUser, id));
   return $currentChat;
 }
+
+function onNewMessage(message) {
+  console.log(message);
+}
 </script>
 
 <Route path="/group/:id" let:params primary={false}>
@@ -25,7 +29,7 @@ function getCurrentChat(id) {
       <Chat chat={getCurrentChat(params.id)}/>
   </div>
   <div class="blah-center-bottom">
-    <MessageInput on:newMessage={(e) => console.log(e.detail.message)} />
+    <MessageInput on:newMessage={(e) => onNewMessage(e.detail.message)} />
   </div>
 </Route>
 
