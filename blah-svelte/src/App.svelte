@@ -2,6 +2,7 @@
 <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
 <script>
 import '@material/mwc-icon';
+import { onMount } from 'svelte';
 import { Router } from "svelte-navigator";
 import { WiredToggle } from 'wired-elements';
 import Left from './views/desktop/Left.svelte';
@@ -19,6 +20,9 @@ window.addEventListener('resize', () => {
 /* function toggleRightPanel() {
   displayRight = !displayRight;
 } */
+onMount(async () => {
+  console.log("mounted, please check async/wait");
+});
 </script>
 
 <Router>
