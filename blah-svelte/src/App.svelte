@@ -4,11 +4,13 @@
 import '@material/mwc-icon';
 import { onMount } from 'svelte';
 import { Router } from "svelte-navigator";
+import { currentUser } from './store/stores';
 import { WiredToggle } from 'wired-elements';
 import Left from './views/desktop/Left.svelte';
 import Center from './views/desktop/Center.svelte';
 import Right from './views/desktop/Right.svelte';
 import Mobile from './views/mobile/Main.svelte';
+import Login from './views/Login.svelte';
 
 let displayRight = false;
 let isMobile = window.innerWidth < 700;
@@ -26,34 +28,43 @@ onMount(async () => {
 </script>
 
 <Router>
-  <main>
-    <!--<wired-toggle on:change={toggleRightPanel}></wired-toggle>-->
-    {#if isMobile}
+  {#if $currentUser === ''}
+    <main>
       <div id="blah-layout">
-        <div class="blah-layout-mobile">
-          <Mobile />
-        </div>
+        
+        <Login />
       </div>
-    {:else}
-      <div id="blah-layout">
-        <div class="blah-layout-left">
-          <Left />
+    </main>
+  {:else}
+    <main>
+      <!--<wired-toggle on:change={toggleRightPanel}></wired-toggle>-->
+      {#if isMobile}
+        <div id="blah-layout">
+          <div class="blah-layout-mobile">
+            <Mobile />
+          </div>
         </div>
-        {#if displayRight}
-          <div class="blah-layout-center">
-            <Center />
+      {:else}
+        <div id="blah-layout">
+          <div class="blah-layout-left">
+            <Left />
           </div>
-          <div class="blah-layout-right">
-            <Right />
-          </div>
-        {:else}
-          <div class="blah-layout-center-extended">
-            <Center />
-          </div>
-        {/if}
-      </div>
-    {/if}
-  </main>
+          {#if displayRight}
+            <div class="blah-layout-center">
+              <Center />
+            </div>
+            <div class="blah-layout-right">
+              <Right />
+            </div>
+          {:else}
+            <div class="blah-layout-center-extended">
+              <Center />
+            </div>
+          {/if}
+        </div>
+      {/if}
+    </main>
+  {/if}
 </Router>
 
 
