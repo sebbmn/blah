@@ -1,8 +1,8 @@
 <script>
 import { createEventDispatcher } from 'svelte';
-import { navigate } from "svelte-navigator";
+import { navigate } from 'svelte-navigator';
 import { WiredCard, WiredListbox, WiredIconButton } from 'wired-elements';
-import Avatar from './Avatar.svelte'
+import Avatar from './Avatar.svelte';
 
 export let groupList;
 

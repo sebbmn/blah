@@ -17,7 +17,7 @@ onMount(async () => {
 });
 
 function getGroupInfos(id) {
-  currentGroup.set(getGroup($currentUser, id))
+  currentGroup.set(getGroup($currentUser, id));
   return $currentGroup;
 }
 

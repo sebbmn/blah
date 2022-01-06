@@ -1,10 +1,10 @@
 <script>
 import { onMount, onDestroy } from 'svelte';
-import { Router, navigate } from "svelte-navigator";
+import { Router, navigate } from 'svelte-navigator';
 import { currentUser } from '../store/stores.js';
-import { WiredCard, WiredListbox, WiredIconButton } from 'wired-elements';
+import { WiredCard, WiredListbox } from 'wired-elements';
 
-let users = ["usr1", "usr2", "user3", "usr4"]
+let users = ['usr1', 'usr2', 'user3', 'usr4'];
 
 function login(user) {
   currentUser.set(user);
