@@ -1,20 +1,9 @@
 <script>
 import { Route, navigate } from 'svelte-navigator';
-import { getChat, getGroup } from '../../store/actions';
-import { currentGroup, currentChat, currentUser } from '../../store/stores.js';
+import { currentGroup, currentChat } from '../../store/stores.js';
 import GroupMenubar from '../../lib/GroupMenubar.svelte';
 import Chat from '../../lib/Chat.svelte';
 import MessageInput from '../../lib/MessageInput.svelte';
-
-function getGroupInfos(id) {
-  currentGroup.set(getGroup($currentUser, id))
-  return $currentGroup;
-}
-
-function getCurrentChat(id) {
-  currentChat.set(getChat($currentUser, id));
-  return $currentChat;
-}
 
 function onNewMessage(message) {
   console.log(message);
@@ -22,14 +11,14 @@ function onNewMessage(message) {
 </script>
 
 <Route path="/group/:id" let:params primary={false}>
-  {#if !getGroupInfos(params.id)['id']}
+  {#if !$currentGroup['id']}
     {navigate('/')}
   {:else}
     <div class="blah-center-top">
-        <GroupMenubar group={getGroupInfos(params.id)} isMobile={false}/>
+        <GroupMenubar group={$currentGroup} isMobile={false}/>
     </div>
     <div class="blah-center-middle">
-        <Chat chat={getCurrentChat(params.id)}/>
+        <Chat chat={$currentChat}/>
     </div>
     <div class="blah-center-bottom">
       <MessageInput on:newMessage={(e) => onNewMessage(e.detail.message)} />

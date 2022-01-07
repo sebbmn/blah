@@ -16,22 +16,14 @@ onMount(async () => {
   groups.set(getGroups($currentUser));
 });
 
-function getGroupInfos(id) {
-  currentGroup.set(getGroup($currentUser, id));
-  return $currentGroup;
-}
-
-function getCurrentChat(id) {
-  currentChat.set(getChat($currentUser, id));
-  return $currentChat;
-}
-
 function addGroup(e) {
   groups.update(groups => [...groups, e.detail]);
 }
 
-function setCurrentGroup(group) {
-  navigate(`/group/${group}`);
+function setCurrentGroup(id) {
+  currentGroup.set(getGroup($currentUser, id));
+  currentChat.set(getChat($currentUser, id));
+  navigate(`/group/${id}`);
 }
 </script>
 
@@ -49,14 +41,14 @@ function setCurrentGroup(group) {
 </Route>
 
 <Route path="/group/:id" let:params primary={false}>
-  {#if !getGroupInfos(params.id)['id']}
+  {#if !$currentGroup['id']}
     {navigate('/')}
   {:else}
     <div class="blah-mobile-top">
-        <GroupMenubar group={getGroupInfos(params.id)} isMobile={true} on:navigateBack="{() => navigate('/')}"/>
+        <GroupMenubar group={$currentGroup} isMobile={true} on:navigateBack="{() => navigate('/')}"/>
     </div>
     <div class="blah-mobile-middle">
-        <Chat chat={getCurrentChat(params.id)}/>
+        <Chat chat={$currentChat}/>
     </div>
     <div class="blah-mobile-bottom">
       <MessageInput />

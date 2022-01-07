@@ -5,7 +5,6 @@ import '@material/mwc-icon';
 import { onMount } from 'svelte';
 import { Router } from "svelte-navigator";
 import { currentUser } from './store/stores';
-import { WiredToggle } from 'wired-elements';
 import Left from './views/desktop/Left.svelte';
 import Center from './views/desktop/Center.svelte';
 import Right from './views/desktop/Right.svelte';
@@ -19,9 +18,6 @@ window.addEventListener('resize', () => {
   isMobile = window.innerWidth < 700;
 });
 
-/* function toggleRightPanel() {
-  displayRight = !displayRight;
-} */
 onMount(async () => {
   console.log("mounted, please check async/wait");
 });
@@ -31,13 +27,11 @@ onMount(async () => {
   {#if $currentUser === ''}
     <main>
       <div id="blah-layout">
-        
         <Login />
       </div>
     </main>
   {:else}
     <main>
-      <!--<wired-toggle on:change={toggleRightPanel}></wired-toggle>-->
       {#if isMobile}
         <div id="blah-layout">
           <div class="blah-layout-mobile">
