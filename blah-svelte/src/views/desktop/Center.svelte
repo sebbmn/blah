@@ -1,5 +1,5 @@
 <script>
-import { Route } from 'svelte-navigator';
+import { Route, navigate } from 'svelte-navigator';
 import { getChat, getGroup } from '../../store/actions';
 import { currentGroup, currentChat, currentUser } from '../../store/stores.js';
 import GroupMenubar from '../../lib/GroupMenubar.svelte';
@@ -22,15 +22,19 @@ function onNewMessage(message) {
 </script>
 
 <Route path="/group/:id" let:params primary={false}>
-  <div class="blah-center-top">
-      <GroupMenubar group={getGroupInfos(params.id)} isMobile={false}/>
-  </div>
-  <div class="blah-center-middle">
-      <Chat chat={getCurrentChat(params.id)}/>
-  </div>
-  <div class="blah-center-bottom">
-    <MessageInput on:newMessage={(e) => onNewMessage(e.detail.message)} />
-  </div>
+  {#if !getGroupInfos(params.id)['id']}
+    {navigate('/')}
+  {:else}
+    <div class="blah-center-top">
+        <GroupMenubar group={getGroupInfos(params.id)} isMobile={false}/>
+    </div>
+    <div class="blah-center-middle">
+        <Chat chat={getCurrentChat(params.id)}/>
+    </div>
+    <div class="blah-center-bottom">
+      <MessageInput on:newMessage={(e) => onNewMessage(e.detail.message)} />
+    </div>
+  {/if}
 </Route>
 
 <style lang="scss">

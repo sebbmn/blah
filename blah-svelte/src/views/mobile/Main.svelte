@@ -49,15 +49,19 @@ function setCurrentGroup(group) {
 </Route>
 
 <Route path="/group/:id" let:params primary={false}>
-  <div class="blah-mobile-top">
-      <GroupMenubar group={getGroupInfos(params.id)} isMobile={true} on:navigateBack="{() => navigate('/')}"/>
-  </div>
-  <div class="blah-mobile-middle">
-      <Chat chat={getCurrentChat(params.id)}/>
-  </div>
-  <div class="blah-mobile-bottom">
-    <MessageInput />
-  </div>
+  {#if !getGroupInfos(params.id)['id']}
+    {navigate('/')}
+  {:else}
+    <div class="blah-mobile-top">
+        <GroupMenubar group={getGroupInfos(params.id)} isMobile={true} on:navigateBack="{() => navigate('/')}"/>
+    </div>
+    <div class="blah-mobile-middle">
+        <Chat chat={getCurrentChat(params.id)}/>
+    </div>
+    <div class="blah-mobile-bottom">
+      <MessageInput />
+    </div>
+  {/if}
 </Route>
 
 <style lang="scss">
