@@ -29,6 +29,10 @@ function getCurrentChat(id) {
 function addGroup(e) {
   groups.update(groups => [...groups, e.detail]);
 }
+
+function setCurrentGroup(group) {
+  navigate(`/group/${group}`);
+}
 </script>
 
 <Route path="/" let:params primary={false}>
@@ -39,7 +43,7 @@ function addGroup(e) {
     {#if showNewGroup}
       <NewGroup on:navigateBack={() => showNewGroup = false}/>
     {:else}
-      <GroupList groupList={$groups} on:newGroup={() => showNewGroup = true}/>
+      <GroupList groupList={$groups} on:newGroup={() => showNewGroup = true} on:selectGroup={(e) => setCurrentGroup(e.detail.id)}/>
     {/if}
   </div>
 </Route>

@@ -1,6 +1,5 @@
 <script>
 import { createEventDispatcher } from 'svelte';
-import { navigate } from 'svelte-navigator';
 import { WiredCard, WiredListbox, WiredIconButton } from 'wired-elements';
 import Avatar from './Avatar.svelte';
 
@@ -8,8 +7,12 @@ export let groupList;
 
 const dispatch = createEventDispatcher();
 
-function newGroup(e) {
+function newGroup() {
   dispatch('newGroup', {});
+}
+
+function selectGroup(group) {
+  dispatch('selectGroup', {id: group});
 }
 </script>
 
@@ -21,7 +24,7 @@ function newGroup(e) {
   <wired-listbox selected="two" class="blah-group-list__listbox"
   style="--wired-item-selected-color: white; --wired-item-selected-bg: lightgrey;">
     {#each groupList as group}
-      <wired-item class="blah-group-list__listbox--item" value={group.id} on:click="{() => navigate(`/group/${group.id}`)}">
+      <wired-item class="blah-group-list__listbox--item" value={group.id} on:click="{() => selectGroup(group.id)}">
         <Avatar image={{src: group.avatar, alt: group.name}} />&nbsp;
         {group.name}
       </wired-item>

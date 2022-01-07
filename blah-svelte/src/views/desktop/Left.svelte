@@ -1,5 +1,6 @@
 <script>
 import { onMount } from 'svelte';
+import { navigate } from 'svelte-navigator';
 import { getGroups } from '../../store/actions';
 import { groups, currentUser } from '../../store/stores.js';
 import GroupList from '../../lib/GroupList.svelte';
@@ -15,6 +16,10 @@ onMount(async () => {
 function addGroup(e) {
   groups.update(groups => [...groups, e.detail]);
 }
+
+function setCurrentGroup(group) {
+  navigate(`/group/${group}`);
+}
 </script>
 
 <div class="blah-left-top">
@@ -24,7 +29,7 @@ function addGroup(e) {
   {#if showNewGroup}
     <NewGroup on:navigateBack={() => showNewGroup = false}/>
   {:else}
-    <GroupList groupList={$groups} on:newGroup={() => showNewGroup = true}/>
+    <GroupList groupList={$groups} on:newGroup={() => showNewGroup = true} on:selectGroup={(e) => setCurrentGroup(e.detail.id)}/>
   {/if}
 </div>
 
