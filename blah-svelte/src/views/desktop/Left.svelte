@@ -10,7 +10,7 @@ import NewGroup from '../../lib/NewGroup.svelte';
 let showNewGroup = false;
 
 onMount(async () => {
-  groups.set(getGroups($currentUser));
+  groups.set(getGroups($currentUser['id']));
 });
 
 function addGroup(e) {
@@ -18,8 +18,8 @@ function addGroup(e) {
 }
 
 function setCurrentGroup(id) {
-  currentGroup.set(getGroup($currentUser, id));
-  currentChat.set(getChat($currentUser, id));
+  currentGroup.set(getGroup($currentUser['id'], id));
+  currentChat.set(getChat($currentUser['id'], id));
   navigate(`/group/${id}`);
 }
 </script>

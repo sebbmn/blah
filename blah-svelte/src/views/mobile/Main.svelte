@@ -13,7 +13,7 @@ import NewGroup from '../../lib/NewGroup.svelte';
 let showNewGroup = false;
 
 onMount(async () => {
-  groups.set(getGroups($currentUser));
+  groups.set(getGroups($currentUser['id']));
 });
 
 function addGroup(e) {
@@ -21,9 +21,22 @@ function addGroup(e) {
 }
 
 function setCurrentGroup(id) {
-  currentGroup.set(getGroup($currentUser, id));
-  currentChat.set(getChat($currentUser, id));
+  currentGroup.set(getGroup($currentUser['id'], id));
+  currentChat.set(getChat($currentUser['id'], id));
   navigate(`/group/${id}`);
+}
+
+function onNewMessage(message) {
+  const newMessage = {
+    id: '',
+    message: message,
+    user: $currentUser
+  };
+
+  $currentChat['messages'] = [
+    ...$currentChat['messages'],
+    newMessage
+  ]
 }
 </script>
 
@@ -51,7 +64,7 @@ function setCurrentGroup(id) {
         <Chat chat={$currentChat}/>
     </div>
     <div class="blah-mobile-bottom">
-      <MessageInput />
+      <MessageInput on:newMessage={(e) => onNewMessage(e.detail.message)} />
     </div>
   {/if}
 </Route>

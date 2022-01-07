@@ -1,12 +1,21 @@
 <script>
 import { Route, navigate } from 'svelte-navigator';
-import { currentGroup, currentChat } from '../../store/stores.js';
+import { currentGroup, currentChat, currentUser } from '../../store/stores.js';
 import GroupMenubar from '../../lib/GroupMenubar.svelte';
 import Chat from '../../lib/Chat.svelte';
 import MessageInput from '../../lib/MessageInput.svelte';
 
 function onNewMessage(message) {
-  console.log(message);
+  const newMessage = {
+    id: '',
+    message: message,
+    user: $currentUser
+  };
+
+  $currentChat['messages'] = [
+    ...$currentChat['messages'],
+    newMessage
+  ]
 }
 </script>
 

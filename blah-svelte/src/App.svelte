@@ -24,7 +24,7 @@ onMount(async () => {
 </script>
 
 <Router>
-  {#if $currentUser === ''}
+  {#if !$currentUser['name']}
     <main>
       <div id="blah-layout">
         <Login />

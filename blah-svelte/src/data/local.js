@@ -9,7 +9,10 @@ import data from "./mockData.json";
 }
 */
 function getUser(userId) {
-  const user = data.users[userId] || {};
+  const user = {
+    ...data.users[userId],
+    id: userId
+  };
   return user;
 }
 
