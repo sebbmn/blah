@@ -61,7 +61,7 @@ function onNewMessage(message) {
         <GroupMenubar group={$currentGroup} isMobile={true} on:navigateBack="{() => navigate('/')}"/>
     </div>
     <div class="blah-mobile-middle">
-        <Chat chat={$currentChat}/>
+      <Chat chat={$currentChat} currentUser={$currentUser}/>
     </div>
     <div class="blah-mobile-bottom">
       <MessageInput on:newMessage={(e) => onNewMessage(e.detail.message)} />

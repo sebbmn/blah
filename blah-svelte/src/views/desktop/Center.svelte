@@ -27,7 +27,7 @@ function onNewMessage(message) {
         <GroupMenubar group={$currentGroup} isMobile={false}/>
     </div>
     <div class="blah-center-middle">
-        <Chat chat={$currentChat}/>
+        <Chat chat={$currentChat} currentUser={$currentUser}/>
     </div>
     <div class="blah-center-bottom">
       <MessageInput on:newMessage={(e) => onNewMessage(e.detail.message)} />
