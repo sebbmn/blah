@@ -40,24 +40,28 @@ onMount(() => {
   &__message-self {
     text-align: right;
     color: white;
+    margin-bottom: 25px;
     p {
       width: 100%;
       color: teal;
       u {
         padding-right: 15px;
-        text-decoration: teal wavy underline;
+        font-weight: bolder;
+        text-decoration: none;
       }
     }
   }
   &__message-other {
     text-align: left;
     color: teal;
+    margin-bottom: 25px;
     p {
       width: 100%;
       color: teal;
       u {
         padding-left: 15px;
-        text-decoration: teal wavy underline;
+        font-weight: bolder;
+        text-decoration: none;
       }
     }
   }
