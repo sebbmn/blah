@@ -20,7 +20,7 @@ onMount(() => {
       <p>
         <u>{msg.user.name === currentUser.name ? 'Me' : msg.user.name}</u>
       </p>
-      <wired-card>
+      <wired-card fill="{msg.user.name === currentUser.name ? 'teal' : ''}">
         {msg.message}
       </wired-card>
     </div>
@@ -39,23 +39,25 @@ onMount(() => {
   overflow-x: hidden;
   &__message-self {
     text-align: right;
-    color: #ff3c00;
+    color: white;
     p {
       width: 100%;
+      color: teal;
       u {
         padding-right: 15px;
-        text-decoration: #ff3c00 wavy underline;
+        text-decoration: teal wavy underline;
       }
     }
   }
   &__message-other {
     text-align: left;
-    color: #1100ff;
+    color: teal;
     p {
       width: 100%;
+      color: teal;
       u {
         padding-left: 15px;
-        text-decoration: #1100ff wavy underline;
+        text-decoration: teal wavy underline;
       }
     }
   }
