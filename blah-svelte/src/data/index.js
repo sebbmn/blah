@@ -134,7 +134,7 @@ function deleteMessage(id) {
   return;
 }
 
-export {
+export default {
   createUser,
   getUser,
   getUsers,

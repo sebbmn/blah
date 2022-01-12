@@ -1,14 +1,13 @@
 <script>
 import { onMount, onDestroy } from 'svelte';
 import { Router, navigate } from 'svelte-navigator';
-import { currentUser } from '../store/stores.js';
-import { getUser } from '../data/index.js';
+import actions from '../store/actions'
 import { WiredCard, WiredListbox } from 'wired-elements';
 
 let users = ['usr1', 'usr2', 'usr3', 'usr4'];
 
 function login(userId) {
-  currentUser.set(getUser(userId));
+  actions.setCurrentUser(userId)
 }
 
 onMount(async () => {

@@ -1,8 +1,9 @@
 <script>
 import { onMount } from 'svelte';
 import { navigate } from 'svelte-navigator';
-import { getGroups, getGroup, getChat } from '../../data/index';
+import data from '../../data/index';
 import { groups, currentUser, currentGroup, currentChat } from '../../store/stores.js';
+import actions from '../../store/actions';
 import GroupList from '../../lib/GroupList.svelte';
 import MainMenubar from '../../lib/MainMenubar.svelte';
 import NewGroup from '../../lib/NewGroup.svelte';
@@ -10,7 +11,7 @@ import NewGroup from '../../lib/NewGroup.svelte';
 let showNewGroup = false;
 
 onMount(async () => {
-  groups.set(getGroups($currentUser['id']));
+  actions.fetchGroups($currentUser['id']);
 });
 
 function addGroup(e) {
@@ -18,8 +19,8 @@ function addGroup(e) {
 }
 
 function setCurrentGroup(id) {
-  currentGroup.set(getGroup($currentUser['id'], id));
-  currentChat.set(getChat($currentUser['id'], id));
+  currentGroup.set(data.getGroup($currentUser['id'], id));
+  currentChat.set(data.getChat($currentUser['id'], id));
   navigate(`/group/${id}`);
 }
 </script>
