@@ -4,18 +4,16 @@ import { currentGroup, currentChat, currentUser } from '../../store/stores.js';
 import GroupMenubar from '../../lib/GroupMenubar.svelte';
 import Chat from '../../lib/Chat.svelte';
 import MessageInput from '../../lib/MessageInput.svelte';
+import actions from '../../store/actions.js';
 
 function onNewMessage(message) {
   const newMessage = {
     id: '',
     message: message,
+    timestamp: 1,
     user: $currentUser
   };
-
-  $currentChat['messages'] = [
-    ...$currentChat['messages'],
-    newMessage
-  ]
+  actions.newMessage($currentGroup['id'], newMessage);
 }
 </script>
 
