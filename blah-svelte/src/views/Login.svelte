@@ -2,7 +2,7 @@
 import { onMount, onDestroy } from 'svelte';
 import { Router, navigate } from 'svelte-navigator';
 import { currentUser } from '../store/stores.js';
-import { getUser } from '../store/actions.js';
+import { getUser } from '../data/index.js';
 import { WiredCard, WiredListbox } from 'wired-elements';
 
 let users = ['usr1', 'usr2', 'usr3', 'usr4'];

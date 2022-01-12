@@ -1,7 +1,7 @@
 <script>
 import { onMount } from 'svelte';
 import { Route, navigate } from 'svelte-navigator';
-import { getGroups, getChat, getGroup } from '../../store/actions';
+import { getGroups, getChat, getGroup } from '../../data/index';
 import { groups, currentGroup, currentChat, currentUser } from '../../store/stores.js';
 import MainMenubar from '../../lib/MainMenubar.svelte';
 import GroupList from '../../lib/GroupList.svelte';
