@@ -18,7 +18,7 @@ function addGroup(e) {
 }
 
 function setCurrentGroup(id) {
-  actions.setCurrentGroup($currentUser['id'], id);
+  actions.setCurrentGroup(id);
   navigate(`/group/${id}`);
 }
 </script>

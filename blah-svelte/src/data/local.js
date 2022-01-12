@@ -91,6 +91,19 @@ function getGroup(userId, groupId) {
     return {};
   }
 }
+function getChats(userId) {
+  const user = data.users[userId] || {};
+  const chats = user.groups || [];
+
+  return chats.reduce((acc, cht) => {
+    return acc = [
+      ...acc,
+      {
+        ...getChat(userId, cht)
+      }
+    ]
+  }, []);
+}
 
 /*
 {
@@ -156,4 +169,4 @@ function _formatGroup(userId, groupId) {
   };
 }
 
-export default { getUser, getUsers, getContacts, getGroups, getGroup, getChat }
+export default { getUser, getUsers, getContacts, getGroups, getGroup, getChats, getChat }

@@ -6,43 +6,50 @@ function setCurrentUser(id) {
   currentUser.set(data.getUser(id));
 }
 
-function setCurrentGroup(userId, groupId) {
-  currentGroup.set(data.getGroup(userId, groupId));
-  currentChat.set(data.getChat(userId, groupId));
+function setCurrentGroup(groupId) {
+  currentGroup.set(getGroup(groupId));
+  currentChat.set(getChat(groupId));
 }
 
 function fetchGroups(userId) {
   groups.set(data.getGroups(userId));
+  chats.set(data.getChats(userId));
 }
 
 function fetchUsers () {
 
 }
 
-function fetchChats () {
-
-}
-
 function getGroup (id) {
+  let group = {};
 
+  const unsubscribe = groups.subscribe(value => {
+    group = value.find( g => g.id === id);
+  });
+  unsubscribe();
+
+  return group || {};
 }
 
 function getUser (id) {
 
 }
 
-function getChat (id) {
+function getChat(id){
+  let chat = {};
 
+  const unsubscribe = chats.subscribe(value => {
+    chat = value.find( c => c.id === id);
+  });
+  unsubscribe();
+
+  return chat || {};
 }
 
 function newMessage(groupId, newMessage) {
-  let chat = {};
-  
-  const unsubscribe = currentChat.subscribe(value => {
-    chat = value;
-  });
+  const chat = getChat(groupId) || {};
 
-  const newChat = {
+  const updatedChat = {
     ...chat,
     messages: [
       ...chat['messages'],
@@ -50,9 +57,13 @@ function newMessage(groupId, newMessage) {
     ]
   };
 
-  currentChat.set(newChat);
+  chats.update((chts) => {
+    return chts.map(cht => {
+      return cht.id === groupId ? updatedChat : cht;
+    });
+  });
 
-  unsubscribe();
+  currentChat.set(updatedChat);
 }
 
 export default {
@@ -60,6 +71,5 @@ export default {
   setCurrentGroup,
   fetchGroups,
   fetchUsers,
-  fetchChats,
   newMessage
 }

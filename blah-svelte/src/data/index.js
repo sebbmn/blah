@@ -112,6 +112,11 @@ function createMessage(message, groupId) {
 
 /*
 */
+function getChats(userId) {
+  return data.getChats(userId);
+}
+/*
+*/
 function getChat(userId, groupId) {
   return data.getChat(userId, groupId);
 }
@@ -148,6 +153,7 @@ export default {
   getGroups,
   updateGroup,
   deleteGroup,
+  getChats,
   getChat,
   createMessage,
   getMessage,
