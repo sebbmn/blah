@@ -1,6 +1,13 @@
 import data from "./mockData.json";
 
-/** Format
+/*
+[<usr_id>, ...]
+*/
+function getUsers(userId) {
+  return [];
+}
+
+/*
 {
   "name": "",
   "avatar": "",
@@ -8,22 +15,15 @@ import data from "./mockData.json";
   "contacts": [<usr_id>, ...]
 }
 */
-function getUser(userId) {
+function getUser(id) {
   const user = {
-    ...data.users[userId],
-    id: userId
+    ...data.users[id],
+    id: id
   };
   return user;
 }
 
-/** Format
-[<usr_id>, ...]
-*/
-function getUsers(userId) {
-  return [];
-}
-
-/** Format
+/*
 [<usr_id>, ...]
 */
 function getContacts(userId) {
@@ -32,7 +32,7 @@ function getContacts(userId) {
   return contacts;
 }
 
-/** Format
+/*
 [
   {
     "id": "",
@@ -64,7 +64,7 @@ function getGroups(userId) {
   }, []);
 }
 
-/** Format
+/*
 {
   "id": "",
   "name": "",
@@ -92,7 +92,7 @@ function getGroup(userId, groupId) {
   }
 }
 
-/** Format
+/*
 {
   "id": "grp1",
   "messages": [

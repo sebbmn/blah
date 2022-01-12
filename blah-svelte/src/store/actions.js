@@ -8,18 +8,6 @@ function createUser(user) {
 }
 
 /*
-{
-  "name": "",
-  "avatar": "",
-  "groups": [<grp_id>, ...],
-  "contacts": [<usr_id>, ...]
-}
-*/
-function getUser(userId) {
-  return data.getUser(userId);
-}
-
-/*
 [<usr_id>, ...]
 */
 function getUsers(userId) {
@@ -27,14 +15,26 @@ function getUsers(userId) {
 }
 
 /*
+{
+  "name": "",
+  "avatar": "",
+  "groups": [<grp_id>, ...],
+  "contacts": [<usr_id>, ...]
+}
 */
-function updateUser(userId) {
+function getUser(id) {
+  return data.getUser(id);
+}
+
+/*
+*/
+function updateUser(user) {
   return;
 }
 
 /*
 */
-function deleteUser(userId) {
+function deleteUser(id) {
   return;
 }
 
@@ -61,8 +61,15 @@ function removeContact(userId, contactId) {
 /** GROUPS */
 /*
 */
-function createGroup(userId, groupId) {
+function createGroup(group) {
   return;
+}
+
+/*
+[]
+*/
+function getGroups(userId) {
+  return data.getGroups(userId);
 }
 
 /*
@@ -85,13 +92,6 @@ function getGroup(userId, groupId) {
 }
 
 /*
-[]
-*/
-function getGroups(userId) {
-  return data.getGroups(userId);
-}
-
-/*
 */
 function updateGroup(group) {
   return;
@@ -99,14 +99,8 @@ function updateGroup(group) {
 
 /*
 */
-function deleteGroup(groupId) {
+function deleteGroup(id) {
   return;
-}
-
-/*
-*/
-function getChat(userId, groupId) {
-  return data.getChat(userId, groupId);
 }
 
 /* MESSAGES */
@@ -118,7 +112,13 @@ function createMessage(message, groupId) {
 
 /*
 */
-function getMessage(messageId) {
+function getChat(userId, groupId) {
+  return data.getChat(userId, groupId);
+}
+
+/*
+*/
+function getMessage(id) {
   return;
 }
 
@@ -130,7 +130,7 @@ function updateMessage(message) {
 
 /*
 */
-function deleteMessage(messageId) {
+function deleteMessage(id) {
   return;
 }
 
