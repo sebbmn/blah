@@ -1,6 +1,6 @@
 <script>
-import { createEventDispatcher } from 'svelte';
 import { WiredCard, WiredIconButton } from 'wired-elements';
+import { createEventDispatcher } from 'svelte';
 
 const dispatch = createEventDispatcher();
 

@@ -1,6 +1,6 @@
 <script>
-import { createEventDispatcher } from 'svelte';
 import { WiredCard, WiredListbox, WiredIconButton } from 'wired-elements';
+import { createEventDispatcher } from 'svelte';
 import Avatar from './Avatar.svelte';
 
 export let groupList;

@@ -1,6 +1,6 @@
 <script>
-import { onMount } from 'svelte';
 import { WiredCard } from 'wired-elements';
+import { onMount } from 'svelte';
 
 export let chat;
 export let currentUser;

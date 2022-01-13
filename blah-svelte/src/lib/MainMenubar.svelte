@@ -1,5 +1,5 @@
 <script>
-  import { WiredCard, WiredIconButton } from 'wired-elements';
+import { WiredCard, WiredIconButton } from 'wired-elements';
 </script>
   
 <wired-card elevation="2" class="blah-main-menubar">

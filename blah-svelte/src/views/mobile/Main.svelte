@@ -1,6 +1,6 @@
 <script>
-import { onMount } from 'svelte';
 import { Route, navigate } from 'svelte-navigator';
+import { onMount } from 'svelte';
 import { groups, currentGroup, currentChat, currentUser } from '../../store/stores.js';
 import actions from '../../store/actions';
 import MainMenubar from '../../lib/MainMenubar.svelte';

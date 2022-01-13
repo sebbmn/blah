@@ -1,7 +1,7 @@
 <script>
-import { createEventDispatcher } from 'svelte';
 import { WiredCard, WiredIconButton } from 'wired-elements';
-import Avatar from './Avatar.svelte'
+import { createEventDispatcher } from 'svelte';
+import Avatar from './Avatar.svelte';
 
 export let group;
 export let isMobile = false;
