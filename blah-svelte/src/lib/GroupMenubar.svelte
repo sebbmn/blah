@@ -11,14 +11,18 @@ const dispatch = createEventDispatcher();
 function navigateBack() {
   dispatch('navigateBack', {});
 }
+
+function openGroupInfos() {
+  dispatch('openGroupInfos', {});
+}
 </script>
   
 <wired-card elevation="2" class="blah-group-menubar">
   <div class="blah-group-menubar__container">
     {#if isMobile}
-      <mwc-icon class="blah-group-menubar__icon" on:click="{navigateBack}">arrow_back</mwc-icon>
+      <mwc-icon class="blah-group-menubar__icon" on:click={navigateBack}>arrow_back</mwc-icon>
     {/if}
-    <div class="blah-group-menubar__infos" on:click={() => console.log('group info clicked')}>
+    <div class="blah-group-menubar__infos" on:click={openGroupInfos}>
       <div class="blah-group-menubar__avatar">
         <Avatar image={{src: group.avatar, alt: group.name}} />
       </div>

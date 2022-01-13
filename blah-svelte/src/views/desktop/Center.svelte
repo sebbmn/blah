@@ -22,7 +22,7 @@ function onNewMessage(message) {
     {navigate('/')}
   {:else}
     <div class="blah-center-top">
-        <GroupMenubar group={$currentGroup} isMobile={false}/>
+        <GroupMenubar group={$currentGroup} isMobile={false} on:openGroupInfos={() => console.log('open group infos')}/>
     </div>
     <div class="blah-center-middle">
         <Chat chat={$currentChat} currentUser={$currentUser}/>
