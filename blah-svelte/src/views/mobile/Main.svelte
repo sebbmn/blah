@@ -38,7 +38,7 @@ function onNewMessage(message) {
 
 <Route path="/" let:params primary={false}>
   <div class="blah-mobile-top">
-    <MainMenubar />
+    <MainMenubar user={$currentUser}/>
   </div>
   <div class="blah-mobile-middle-bottom">
     {#if showNewGroup}

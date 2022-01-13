@@ -18,8 +18,12 @@ function navigateBack() {
     {#if isMobile}
       <mwc-icon class="blah-group-menubar__icon" on:click="{navigateBack}">arrow_back</mwc-icon>
     {/if}
-    <Avatar image={{src: group.avatar, alt: group.name}} />
-    <p>{group.name}</p>
+    <div class="blah-group-menubar__infos" on:click={() => console.log('group info clicked')}>
+      <div class="blah-group-menubar__avatar">
+        <Avatar image={{src: group.avatar, alt: group.name}} />
+      </div>
+      <p>{group.name}</p>
+    </div>
     <mwc-icon class="blah-group-menubar__icon">more_vert</mwc-icon>
   </div>
 </wired-card>
@@ -38,12 +42,23 @@ function navigateBack() {
     align-items: center;
 
     p {
-      margin: 0;
+      margin: 0 0 0 5px;
     }
   }
 
-&__icon {
+  &__infos {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  &__icon {
     cursor: pointer;
+  }
+  &__avatar {
+    cursor: pointer;
+    margin: 3px;
+    padding: 6px 6px 0 0;
   }
 }
 </style>

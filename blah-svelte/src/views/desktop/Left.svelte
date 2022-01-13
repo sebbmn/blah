@@ -24,7 +24,7 @@ function setCurrentGroup(id) {
 </script>
 
 <div class="blah-left-top">
-  <MainMenubar />
+  <MainMenubar user={$currentUser}/>
 </div>
 <div class="blah-left-middle">
   {#if showNewGroup}

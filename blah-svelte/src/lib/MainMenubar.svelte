@@ -1,13 +1,16 @@
 <script>
 import { WiredCard, WiredIconButton } from 'wired-elements';
+import Avatar from './Avatar.svelte';
+
+export let user = {};
 </script>
   
 <wired-card elevation="2" class="blah-main-menubar">
   <div class="blah-main-menubar__container">
-    <wired-icon-button>
-      <mwc-icon>person</mwc-icon>
-    </wired-icon-button>
-    <p>menu bar</p>
+    <div class="blah-main-menubar__avatar" on:click={() => console.log('avatar clicked')}>
+      <Avatar image={{src: user.avatar, alt:user.name}}/>
+    </div>
+    <p>{user.name}</p>
     <mwc-icon class="blah-main-menubar__icon">more_vert</mwc-icon>
   </div>
 </wired-card>
@@ -21,7 +24,7 @@ import { WiredCard, WiredIconButton } from 'wired-elements';
   &__container {
     width: calc(100% - 20px);
     height: calc(100% - 4px);
-    padding:  4px 10px 0 10px;
+    padding:  0px 10px 0 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,6 +32,11 @@ import { WiredCard, WiredIconButton } from 'wired-elements';
 
   &__icon {
     cursor: pointer;
+  }
+
+  &__avatar {
+    cursor: pointer;
+    padding: 6px 0 0 4px;
   }
 }
 </style>

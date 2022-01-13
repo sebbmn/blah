@@ -17,12 +17,12 @@ function selectGroup(group) {
 </script>
 
 <wired-card elevation="2" class="blah-group-list">
-  Groups
+  Chats
   <wired-icon-button class="blah-group-list__add-group" on:click={newGroup}>
     <mwc-icon>add</mwc-icon>
   </wired-icon-button>
   <wired-listbox selected="two" class="blah-group-list__listbox"
-  style="--wired-item-selected-color: white; --wired-item-selected-bg: lightgrey;">
+  style="--wired-item-selected-color: white; --wired-item-selected-bg: grey;">
     {#each groupList as group}
       <wired-item class="blah-group-list__listbox--item" value={group.id} on:click="{() => selectGroup(group.id)}">
         <Avatar image={{src: group.avatar, alt: group.name}} />&nbsp;
