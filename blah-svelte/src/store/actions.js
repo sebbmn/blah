@@ -1,6 +1,11 @@
 import data from '../data/index';
-import { users, groups, chats, currentGroup, currentChat, currentUser } from './stores.js';
+import { groups, chats, contacts, currentGroup, currentChat, currentUser } from './stores.js';
 
+function fetchData(userId) {
+  groups.set(data.getGroups(userId));
+  chats.set(data.getChats(userId));
+  contacts.set(data.getContacts(userId));
+}
 
 function setCurrentUser(id) {
   currentUser.set(data.getUser(id));
@@ -9,15 +14,6 @@ function setCurrentUser(id) {
 function setCurrentGroup(groupId) {
   currentGroup.set(getGroup(groupId));
   currentChat.set(getChat(groupId));
-}
-
-function fetchGroups(userId) {
-  groups.set(data.getGroups(userId));
-  chats.set(data.getChats(userId));
-}
-
-function fetchUsers () {
-
 }
 
 function getGroup (id) {
@@ -31,9 +27,6 @@ function getGroup (id) {
   return group || {};
 }
 
-function getUser (id) {
-
-}
 
 function getChat(id){
   let chat = {};
@@ -67,9 +60,8 @@ function newMessage(groupId, newMessage) {
 }
 
 export default {
+  fetchData,
   setCurrentUser,
   setCurrentGroup,
-  fetchGroups,
-  fetchUsers,
   newMessage
 }

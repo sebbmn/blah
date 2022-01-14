@@ -24,12 +24,15 @@ function getUser(id) {
 }
 
 /*
-[<usr_id>, ...]
+[{<user>}, ...]
 */
 function getContacts(userId) {
   const user = data.users[userId] || {};
   const contacts = user.contacts || [];
-  return contacts;
+
+  return contacts.map(contact => {
+    return getUser(contact);
+  });
 }
 
 /*

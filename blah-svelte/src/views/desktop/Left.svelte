@@ -10,7 +10,7 @@ import NewGroup from '../NewGroup.svelte';
 let showNewGroup = false;
 
 onMount(async () => {
-  actions.fetchGroups($currentUser['id']);
+  actions.fetchData($currentUser['id']);
 });
 
 function addGroup(e) {
