@@ -8,7 +8,7 @@ import GroupList from '../../lib/GroupList.svelte';
 import GroupMenubar from '../../lib/GroupMenubar.svelte';
 import Chat from '../../lib/Chat.svelte';
 import MessageInput from '../../lib/MessageInput.svelte';
-import NewGroup from '../NewGroup.svelte';
+import NewGroup from '../NewChat.svelte';
 
 let showNewGroup = false;
 

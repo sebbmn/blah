@@ -5,7 +5,7 @@ import { groups, currentUser } from '../../store/stores.js';
 import actions from '../../store/actions';
 import GroupList from '../../lib/GroupList.svelte';
 import MainMenubar from '../../lib/MainMenubar.svelte';
-import NewGroup from '../NewGroup.svelte';
+import NewGroup from '../NewChat.svelte';
 
 let showNewGroup = false;
 
