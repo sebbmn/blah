@@ -13,18 +13,17 @@ onMount(async () => {
   actions.fetchData($currentUser['id']);
 });
 
-function addGroup(e) {
-  //groups.update(groups => [...groups, e.detail]);
-}
-
 function setCurrentGroup(id) {
   actions.setCurrentGroup(id);
   navigate(`/group/${id}`);
 }
 
-function navigateToGroup(id) {
+function navigateTo(id) {
   showNewGroup = false;
-  setCurrentGroup(id);
+
+  if(id) {
+    setCurrentGroup(id);
+  }
 }
 </script>
 
@@ -33,7 +32,7 @@ function navigateToGroup(id) {
 </div>
 <div class="blah-left-middle">
   {#if showNewGroup}
-    <NewGroup on:navigateBack={() => showNewGroup = false} on:navigateToGroup={(e) => navigateToGroup(e.detail.id)}/>
+    <NewGroup on:navigateTo={(e) => navigateTo(e.detail.id)}/>
   {:else}
     <GroupList groupList={$groups} on:newGroup={() => showNewGroup = true} on:selectGroup={(e) => setCurrentGroup(e.detail.id)}/>
   {/if}

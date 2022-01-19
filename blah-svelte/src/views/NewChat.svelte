@@ -7,7 +7,7 @@ import ContactList from '../lib/ContactList.svelte';
 const dispatch = createEventDispatcher();
 
 function navigateBack() {
-  dispatch('navigateBack', {});
+  dispatch('navigateTo', {});
 }
 
 function newConversation(user) {
@@ -16,10 +16,14 @@ function newConversation(user) {
   })
 
   if(group) {
-    dispatch('navigateToGroup', {id: group.id});
+    dispatch('navigateTo', {id: group.id});
   } else {
     console.log('create new conversation', user, $currentUser, $groups, $chats);
   }
+}
+
+function addGroup(e) {
+  //groups.update(groups => [...groups, e.detail]);
 }
 </script>
 
