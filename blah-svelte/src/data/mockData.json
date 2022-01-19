@@ -8,7 +8,9 @@
          "grp2"
       ],
       "contacts": [
-        "usr2"
+        "usr2",
+        "usr3",
+        "usr4"
       ]
     },
     "usr2":  {
@@ -22,7 +24,8 @@
       ],
       "contacts": [
         "usr1",
-        "usr3"
+        "usr3",
+        "usr4"
       ]
     },
     "usr3":  {
@@ -33,7 +36,9 @@
          "grp3"
       ],
       "contacts": [
-        "usr2"
+        "usr1",
+        "usr2",
+        "usr4"
       ]
     },
     "usr4":  {
