@@ -25,6 +25,11 @@ function setCurrentGroup(id) {
   navigate(`/group/${id}`);
 }
 
+function navigateToGroup(id) {
+  showNewGroup = false;
+  setCurrentGroup(id);
+}
+
 function onNewMessage(message) {
   const newMessage = {
     id: '',
@@ -42,7 +47,7 @@ function onNewMessage(message) {
   </div>
   <div class="blah-mobile-middle-bottom">
     {#if showNewGroup}
-      <NewGroup on:navigateBack={() => showNewGroup = false}/>
+      <NewGroup on:navigateBack={() => showNewGroup = false} on:navigateToGroup={(e) => navigateToGroup(e.detail.id)}/>
     {:else}
       <GroupList groupList={$groups} on:newGroup={() => showNewGroup = true} on:selectGroup={(e) => setCurrentGroup(e.detail.id)}/>
     {/if}

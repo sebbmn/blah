@@ -8,13 +8,13 @@ export let contactList;
 const dispatch = createEventDispatcher();
 
 function selectContact(contact) {
-  dispatch('selectContact', {id: contact});
+  dispatch('selectContact', {contact});
 }
 </script>
 <wired-listbox selected="two" class="blah-contact-list__listbox"
 style="--wired-item-selected-color: white; --wired-item-selected-bg: grey;">
   {#each contactList as contact}
-    <wired-item class="blah-contact-list__listbox--item" value={contact.id} on:click="{() => selectContact(contact.id)}">
+    <wired-item class="blah-contact-list__listbox--item" value={contact.id} on:click="{() => selectContact(contact)}">
       <Avatar image={{src: contact.avatar, alt: contact.name}} />&nbsp;
       {contact.name}
     </wired-item>

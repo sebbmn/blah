@@ -1,13 +1,25 @@
 <script>
 import { WiredCard, WiredIconButton } from 'wired-elements';
 import { createEventDispatcher } from 'svelte';
-import { contacts } from '../store/stores.js';
+import { contacts, groups, chats, currentUser } from '../store/stores.js';
 import ContactList from '../lib/ContactList.svelte';
 
 const dispatch = createEventDispatcher();
 
 function navigateBack() {
   dispatch('navigateBack', {});
+}
+
+function newConversation(user) {
+  const group = $groups.find(group => {
+    return group.members[user.id] && Object.keys(group.members).length <= 2;
+  })
+
+  if(group) {
+    dispatch('navigateToGroup', {id: group.id});
+  } else {
+    console.log('create new conversation', user, $currentUser, $groups, $chats);
+  }
 }
 </script>
 
@@ -33,7 +45,7 @@ function navigateBack() {
       <p>New contact</p>
     </div>
   </wired-card>
-  <ContactList contactList={$contacts} />
+  <ContactList contactList={$contacts} on:selectContact={(e) => newConversation(e.detail.contact)}/>
 </wired-card>
 
 <style lang="scss">
