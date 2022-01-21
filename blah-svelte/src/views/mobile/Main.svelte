@@ -8,9 +8,9 @@ import GroupList from '../../lib/GroupList.svelte';
 import GroupMenubar from '../../lib/GroupMenubar.svelte';
 import Chat from '../../lib/Chat.svelte';
 import MessageInput from '../../lib/MessageInput.svelte';
-import NewGroup from '../NewChat.svelte';
+import NewChat from '../NewChat.svelte';
 
-let showNewGroup = false;
+let showNewChat = false;
 
 onMount(async () => {
   actions.fetchData($currentUser['id']);
@@ -22,7 +22,7 @@ function setCurrentGroup(id) {
 }
 
 function navigateTo(id) {
-  showNewGroup = false;
+  showNewChat = false;
 
   if(id) {
     setCurrentGroup(id);
@@ -45,10 +45,10 @@ function onNewMessage(message) {
     <MainMenubar user={$currentUser}/>
   </div>
   <div class="blah-mobile-middle-bottom">
-    {#if showNewGroup}
-      <NewGroup on:navigateTo={(e) => navigateTo(e.detail.id)}/>
+    {#if showNewChat}
+      <NewChat on:navigateTo={(e) => navigateTo(e.detail.id)}/>
     {:else}
-      <GroupList groupList={$groups} on:newGroup={() => showNewGroup = true} on:selectGroup={(e) => setCurrentGroup(e.detail.id)}/>
+      <GroupList groupList={$groups} on:newGroup={() => showNewChat = true} on:selectGroup={(e) => setCurrentGroup(e.detail.id)}/>
     {/if}
   </div>
 </Route>
