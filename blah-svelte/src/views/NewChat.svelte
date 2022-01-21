@@ -2,6 +2,7 @@
 import { WiredCard, WiredIconButton } from 'wired-elements';
 import { createEventDispatcher } from 'svelte';
 import { contacts, groups, chats, currentUser } from '../store/stores.js';
+import actions from '../store/actions'
 import ContactList from '../lib/ContactList.svelte';
 
 const dispatch = createEventDispatcher();
@@ -11,15 +12,25 @@ function navigateBack() {
 }
 
 function newConversation(user) {
-  const group = $groups.find(group => {
+  let group = $groups.find(group => {
     return group.members[user.id] && Object.keys(group.members).length <= 2;
   })
 
-  if(group) {
-    dispatch('navigateTo', {id: group.id});
-  } else {
-    console.log('create new conversation', user, $currentUser, $groups, $chats);
+  if(!group) {
+    const usr1 = `${$currentUser['id']}`;
+    const usr2 = `${user['id']}`;
+
+    const newGroup = {
+      avatar: user.avatar,
+      description: 'private chat',
+      groupType: 'dialog',
+      lastMessage: '',
+      members: {[usr1]: 'admin', [usr2]: 'admin'},
+      name: user.name
+    }
+    group = actions.newGroup(newGroup);
   }
+  dispatch('navigateTo', {id: group.id});
 }
 
 function addGroup(e) {
