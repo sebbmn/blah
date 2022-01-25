@@ -1,5 +1,5 @@
 <script>
-import { WiredCard, WiredIconButton } from 'wired-elements';
+import { WiredCard, WiredButton, WiredIconButton } from 'wired-elements';
 import { createEventDispatcher } from 'svelte';
 import { contacts, groups, chats, currentUser } from '../store/stores.js';
 import actions from '../store/actions'
@@ -44,22 +44,22 @@ function addGroup(e) {
     <mwc-icon>arrow_back</mwc-icon>
   </wired-icon-button>
   <br/>
-  <wired-card elevation="2" class="blah-new-chat__new-group">
+  <wired-button elevation="2" class="blah-new-chat__new-group">
     <div class="blah-new-chat__card-content">
       <wired-icon-button>
         <mwc-icon>group</mwc-icon>
       </wired-icon-button>
       <p>New group</p>
     </div>
-  </wired-card>
-  <wired-card elevation="2" class="blah-new-chat__new-contact">
+  </wired-button>
+  <wired-button elevation="2" class="blah-new-chat__new-contact">
     <div class="blah-new-chat__card-content">
       <wired-icon-button>
         <mwc-icon class="blah-new-chat__icon">person_add</mwc-icon>
       </wired-icon-button>
       <p>New contact</p>
     </div>
-  </wired-card>
+  </wired-button>
   <ContactList contactList={$contacts} on:selectContact={(e) => newConversation(e.detail.contact)}/>
 </wired-card>
 
@@ -89,6 +89,7 @@ function addGroup(e) {
 
   &__card-content {
       height: 45px;
+      width: 280px;
       display: flex;
       cursor: pointer;
       
