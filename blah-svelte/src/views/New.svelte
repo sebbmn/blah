@@ -4,11 +4,21 @@ import { createEventDispatcher } from 'svelte';
 import { contacts, groups, chats, currentUser } from '../store/stores.js';
 import actions from '../store/actions'
 import ContactList from '../lib/ContactList.svelte';
+import NewGroup from '../lib/NewGroup.svelte';
+import NewContact from '../lib/NewContact.svelte';
 
 const dispatch = createEventDispatcher();
 
+let showNewGroup = false;
+let showNewContact = false;
+
 function navigateBack() {
-  dispatch('navigateTo', {});
+  if(showNewGroup || showNewContact) {
+    showNewGroup = false;
+    showNewContact = false;
+  } else {
+    dispatch('navigateTo', {});
+  }
 }
 
 function newConversation(user) {
@@ -39,28 +49,34 @@ function addGroup(e) {
 </script>
 
 <wired-card elevation="2" class="blah-new">
-  Select contact
+  Select ...
   <wired-icon-button class="blah-new__back-button" on:click={navigateBack}>
     <mwc-icon>arrow_back</mwc-icon>
   </wired-icon-button>
   <br/>
-  <wired-button elevation="2" class="blah-new__new-group-button">
-    <div class="blah-new__card-content">
-      <wired-icon-button>
-        <mwc-icon>group</mwc-icon>
-      </wired-icon-button>
-      <p>New group</p>
-    </div>
-  </wired-button>
-  <wired-button elevation="2" class="blah-new__new-contact-button">
-    <div class="blah-new__card-content">
-      <wired-icon-button>
-        <mwc-icon class="blah-new__icon">person_add</mwc-icon>
-      </wired-icon-button>
-      <p>New contact</p>
-    </div>
-  </wired-button>
-  <ContactList contactList={$contacts} on:selectContact={(e) => newConversation(e.detail.contact)}/>
+  {#if !(showNewGroup || showNewContact)}
+    <wired-button elevation="2" class="blah-new__new-group-button" on:click={() => showNewGroup = true}>
+      <div class="blah-new__card-content">
+        <wired-icon-button>
+          <mwc-icon>group</mwc-icon>
+        </wired-icon-button>
+        <p>New group</p>
+      </div>
+    </wired-button>
+    <wired-button elevation="2" class="blah-new__new-contact-button" on:click={() => showNewContact = true}>
+      <div class="blah-new__card-content">
+        <wired-icon-button>
+          <mwc-icon class="blah-new__icon">person_add</mwc-icon>
+        </wired-icon-button>
+        <p>New contact</p>
+      </div>
+    </wired-button>
+    <ContactList contactList={$contacts} on:selectContact={(e) => newConversation(e.detail.contact)}/>
+  {:else if showNewGroup}
+    <NewGroup users={[]} />
+  {:else if showNewContact}
+    <NewContact />
+  {/if}
 </wired-card>
 
 <style lang="scss">
