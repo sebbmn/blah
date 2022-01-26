@@ -8,7 +8,7 @@ import GroupList from '../../lib/GroupList.svelte';
 import GroupMenubar from '../../lib/GroupMenubar.svelte';
 import Chat from '../../lib/Chat.svelte';
 import MessageInput from '../../lib/MessageInput.svelte';
-import NewChat from '../NewChat.svelte';
+import New from '../New.svelte';
 
 let showNewChat = false;
 
@@ -46,7 +46,7 @@ function onNewMessage(message) {
   </div>
   <div class="blah-mobile-middle-bottom">
     {#if showNewChat}
-      <NewChat on:navigateTo={(e) => navigateTo(e.detail.id)}/>
+      <New on:navigateTo={(e) => navigateTo(e.detail.id)}/>
     {:else}
       <GroupList groupList={$groups} on:newGroup={() => showNewChat = true} on:selectGroup={(e) => setCurrentGroup(e.detail.id)}/>
     {/if}

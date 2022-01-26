@@ -5,7 +5,7 @@ import { groups, currentUser } from '../../store/stores.js';
 import actions from '../../store/actions';
 import GroupList from '../../lib/GroupList.svelte';
 import MainMenubar from '../../lib/MainMenubar.svelte';
-import NewChat from '../NewChat.svelte';
+import New from '../New.svelte';
 
 let showNewChat = false;
 
@@ -32,7 +32,7 @@ function navigateTo(id) {
 </div>
 <div class="blah-left-middle">
   {#if showNewChat}
-    <NewChat on:navigateTo={(e) => navigateTo(e.detail.id)}/>
+    <New on:navigateTo={(e) => navigateTo(e.detail.id)}/>
   {:else}
     <GroupList groupList={$groups} on:newGroup={() => showNewChat = true} on:selectGroup={(e) => setCurrentGroup(e.detail.id)}/>
   {/if}
