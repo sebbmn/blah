@@ -38,24 +38,24 @@ function addGroup(e) {
 }
 </script>
 
-<wired-card elevation="2" class="blah-new-chat">
+<wired-card elevation="2" class="blah-new">
   Select contact
-  <wired-icon-button class="blah-new-chat__back-button" on:click={navigateBack}>
+  <wired-icon-button class="blah-new__back-button" on:click={navigateBack}>
     <mwc-icon>arrow_back</mwc-icon>
   </wired-icon-button>
   <br/>
-  <wired-button elevation="2" class="blah-new-chat__new-group">
-    <div class="blah-new-chat__card-content">
+  <wired-button elevation="2" class="blah-new__new-group-button">
+    <div class="blah-new__card-content">
       <wired-icon-button>
         <mwc-icon>group</mwc-icon>
       </wired-icon-button>
       <p>New group</p>
     </div>
   </wired-button>
-  <wired-button elevation="2" class="blah-new-chat__new-contact">
-    <div class="blah-new-chat__card-content">
+  <wired-button elevation="2" class="blah-new__new-contact-button">
+    <div class="blah-new__card-content">
       <wired-icon-button>
-        <mwc-icon class="blah-new-chat__icon">person_add</mwc-icon>
+        <mwc-icon class="blah-new__icon">person_add</mwc-icon>
       </wired-icon-button>
       <p>New contact</p>
     </div>
@@ -64,7 +64,7 @@ function addGroup(e) {
 </wired-card>
 
 <style lang="scss">
-.blah-new-chat {
+.blah-new {
   width: calc(100% - 20px);
   height: calc(100% - 20px);
 
@@ -78,12 +78,12 @@ function addGroup(e) {
     height: 20px;
     width: 20px;
   }
-  &__new-group {
+  &__new-group-button {
     width: calc(100% - 20px);
     margin-top: 20px;
   }
 
-  &__new-contact {
+  &__new-contact-button {
     width: calc(100% - 20px);
   }
 
