@@ -1,7 +1,7 @@
 <script>
 import { WiredCard, WiredButton, WiredIconButton } from 'wired-elements';
 import { createEventDispatcher } from 'svelte';
-import { contacts, groups, chats, currentUser } from '../store/stores.js';
+import { contacts, groups, users, currentUser } from '../store/stores.js';
 import actions from '../store/actions'
 import ContactList from '../lib/ContactList.svelte';
 import NewGroup from '../lib/NewGroup.svelte';
@@ -73,9 +73,9 @@ function addGroup(e) {
     </wired-button>
     <ContactList contactList={$contacts} on:selectContact={(e) => newConversation(e.detail.contact)}/>
   {:else if showNewGroup}
-    <NewGroup users={[]} />
+    <NewGroup contacts={$contacts} />
   {:else if showNewContact}
-    <NewContact />
+    <NewContact users={$users}/>
   {/if}
 </wired-card>
 

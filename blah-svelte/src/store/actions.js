@@ -1,10 +1,11 @@
 import data from '../data/index';
-import { groups, chats, contacts, currentGroup, currentChat, currentUser } from './stores.js';
+import { groups, chats, contacts, users, currentGroup, currentChat, currentUser } from './stores.js';
 
 function fetchData(userId) {
   groups.set(data.getGroups(userId));
   chats.set(data.getChats(userId));
   contacts.set(data.getContacts(userId));
+  users.set(data.getUsers(userId));
 }
 
 function setCurrentUser(id) {

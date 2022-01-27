@@ -4,7 +4,23 @@ import data from "./mockData.json";
 [<usr_id>, ...]
 */
 function getUsers(userId) {
-  return [];
+  const user = data.users[userId] || {};
+  const userGroups = user.groups || [];
+  const groups = userGroups.map(grp => {
+     return data.groups[grp];
+  });
+
+  const members = groups.reduce((all, group) => {
+    const filteredMembers = Object.keys(group.members).filter(mbr => mbr !== userId);
+    all = [...all, ...filteredMembers];
+    return all;
+  }, []);
+
+  const users = [...new Set(members)].map(member => {
+    return getUser(member);
+  });
+
+  return users;
 }
 
 /*
