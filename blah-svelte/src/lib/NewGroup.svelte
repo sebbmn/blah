@@ -4,31 +4,41 @@ import ContactList from '../lib/ContactList.svelte';
 
 export let contacts = [];
 
-const group = {
-  name: '',
-  description: '',
-  avatar: '',
-  groupType: 'group',
-  lastMessage: '',
-  members: []
-};
+let name;
+let description;
+let avatar;
+let members = [];
 
 function addMember(member) {
-  const isNewMember = !group.members.some(mbr => mbr.id === member.id);
+  const isNewMember = !members.some(mbr => mbr.id === member.id);
 
-  group.members = isNewMember ? [...group.members, member] : group.members;
-  group.members = group.members;
+  members = isNewMember ? [...members, member] : members;
+  members = members;
 
+}
+
+function createGroup() {
+  const group = {
+    name: name.value || '',
+    description: description.value || '',
+    avatar: avatar.value || '',
+    groupType: 'group',
+    lastMessage: '',
+    members: [ ...members]
+  };
+
+  console.log(group)
 }
 </script>
 
 <div class="blah-new-group">
-  <wired-input class="blah-new-group__name" placeholder="Enter name" contenteditable="true"></wired-input>
-  <wired-input class="blah-new-group__description" placeholder="Enter description"></wired-input>
+  <wired-input class="blah-new-group__name" bind:this="{name}" placeholder="Enter name"></wired-input>
+  <wired-input class="blah-new-group__description" bind:this="{description}" placeholder="Enter description"></wired-input>
+  <wired-input class="blah-new-group__avatar" bind:this="{avatar}" placeholder="Enter avatar url"></wired-input>
   <p>
-    {#each group.members as member, i}
+    {#each members as member, i}
       {member.name}
-      {#if i < group.members.length - 1}
+      {#if i < members.length - 1}
         <span>,&nbsp;</span>
       {/if}
     {:else}
@@ -36,7 +46,7 @@ function addMember(member) {
     {/each}
   </p>
   <ContactList contactList={contacts} on:selectContact={(e) => addMember(e.detail.contact)}/>
-  <wired-button on:click={(e) => console.log(group)}>Create</wired-button>
+  <wired-button on:click={(e) => createGroup()}>Create</wired-button>
 </div>
 
 <style style lang="scss">
@@ -48,6 +58,10 @@ function addMember(member) {
   }
 
   &__description {
+    width: calc(100% - 20px);
+  }
+
+  &__avatar {
     width: calc(100% - 20px);
   }
 }
