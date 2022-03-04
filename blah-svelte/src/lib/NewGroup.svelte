@@ -1,4 +1,5 @@
 <script>
+import { WiredInput, WiredButton } from 'wired-elements';
 import ContactList from '../lib/ContactList.svelte';
 
 export let contacts = [];
@@ -21,7 +22,9 @@ function addMember(member) {
 }
 </script>
 
-<div class="blah-new-group">New Group...
+<div class="blah-new-group">
+  <wired-input class="blah-new-group__name" placeholder="Enter name" contenteditable="true"></wired-input>
+  <wired-input class="blah-new-group__description" placeholder="Enter description"></wired-input>
   <p>
     {#each group.members as member, i}
       {member.name}
@@ -33,10 +36,19 @@ function addMember(member) {
     {/each}
   </p>
   <ContactList contactList={contacts} on:selectContact={(e) => addMember(e.detail.contact)}/>
+  <wired-button on:click={(e) => console.log(group)}>Create</wired-button>
 </div>
 
 <style style lang="scss">
 .blah-new-group {
   margin-top: 20px;
+
+  &__name {
+    width: calc(100% - 20px);
+  }
+
+  &__description {
+    width: calc(100% - 20px);
+  }
 }
 </style>
