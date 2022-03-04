@@ -43,8 +43,11 @@ function newConversation(user) {
   dispatch('navigateTo', {id: group.id});
 }
 
-function addGroup(e) {
-  //groups.update(groups => [...groups, e.detail]);
+function newGroup(group) {
+  showNewGroup = false;
+  let newGroup = actions.newGroup(group);
+  console.log(newGroup);
+  dispatch('navigateTo', {id: newGroup.id});
 }
 </script>
 
@@ -73,7 +76,7 @@ function addGroup(e) {
     </wired-button>
     <ContactList contactList={$contacts} on:selectContact={(e) => newConversation(e.detail.contact)}/>
   {:else if showNewGroup}
-    <NewGroup contacts={$contacts} />
+    <NewGroup contacts={$contacts} on:newGroup={(e) => newGroup(e.detail)}/>
   {:else if showNewContact}
     <NewContact users={$users}/>
   {/if}

@@ -1,8 +1,11 @@
 <script>
 import { WiredInput, WiredButton } from 'wired-elements';
+import { createEventDispatcher } from 'svelte';
 import ContactList from '../lib/ContactList.svelte';
 
 export let contacts = [];
+
+const dispatch = createEventDispatcher();
 
 let name;
 let description;
@@ -26,8 +29,7 @@ function createGroup() {
     lastMessage: '',
     members: [ ...members]
   };
-
-  console.log(group)
+  dispatch('newGroup', group);
 }
 </script>
 
