@@ -46,13 +46,16 @@ function newConversation(user) {
 function newGroup(group) {
   showNewGroup = false;
   let newGroup = actions.newGroup(group);
-  console.log(newGroup);
   dispatch('navigateTo', {id: newGroup.id});
+}
+
+function newContact(contact) {
+  showNewContact = false;
+  dispatch('navigateTo', {});
 }
 </script>
 
 <wired-card elevation="2" class="blah-new">
-  Select ...
   <wired-icon-button class="blah-new__back-button" on:click={navigateBack}>
     <mwc-icon>arrow_back</mwc-icon>
   </wired-icon-button>
@@ -78,7 +81,7 @@ function newGroup(group) {
   {:else if showNewGroup}
     <NewGroup contacts={$contacts} on:newGroup={(e) => newGroup(e.detail)}/>
   {:else if showNewContact}
-    <NewContact users={$users}/>
+    <NewContact on:newContact={(e) => newContact(e.detail)}/>
   {/if}
 </wired-card>
 
