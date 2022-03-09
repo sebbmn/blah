@@ -32,10 +32,11 @@ function getUsers(userId) {
 }
 */
 function getUser(id) {
-  const user = {
+
+  const user = data.users[id] ? {
     ...data.users[id],
     id: id
-  };
+  } : {};
   return user;
 }
 

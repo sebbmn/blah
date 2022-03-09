@@ -40,6 +40,21 @@ function getChat(id){
   return chat || {};
 }
 
+function getUser(id){
+  return data.getUser(id);
+}
+
+function getContact(id){
+  let contact = {};
+
+  const unsubscribe = contacts.subscribe(value => {
+    contact = value.find( c => c.id === id);
+  });
+  unsubscribe();
+
+  return contact || {};
+}
+
 function newMessage(groupId, newMessage) {
   const chat = getChat(groupId) || {};
 
@@ -80,10 +95,33 @@ function newGroup(group) {
   return group;
 }
 
+function newContact(contactId) {
+  const contact = getContact(contactId);
+
+  if (contact.id) {
+    console.log('contact already exist');
+    return;
+  }
+
+  const user = getUser(contactId);
+
+  if (user.id) {
+    contacts.update((cntcts) => {
+      return [...cntcts, user];
+    })
+
+    return;
+  }
+
+  console.log('user doesn\'t exist');
+  return;
+}
+
 export default {
   fetchData,
   setCurrentUser,
   setCurrentGroup,
   newMessage,
-  newGroup
+  newGroup,
+  newContact
 }

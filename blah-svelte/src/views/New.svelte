@@ -1,7 +1,7 @@
 <script>
 import { WiredCard, WiredButton, WiredIconButton } from 'wired-elements';
 import { createEventDispatcher } from 'svelte';
-import { contacts, groups, users, currentUser } from '../store/stores.js';
+import { contacts, groups, currentUser } from '../store/stores.js';
 import actions from '../store/actions'
 import ContactList from '../lib/ContactList.svelte';
 import NewGroup from '../lib/NewGroup.svelte';
@@ -45,12 +45,13 @@ function newConversation(user) {
 
 function newGroup(group) {
   showNewGroup = false;
-  let newGroup = actions.newGroup(group);
+  const newGroup = actions.newGroup(group);
   dispatch('navigateTo', {id: newGroup.id});
 }
 
-function newContact(contact) {
+function newContact(contactId) {
   showNewContact = false;
+  const newContact = actions.newContact(contactId);
   dispatch('navigateTo', {});
 }
 </script>
