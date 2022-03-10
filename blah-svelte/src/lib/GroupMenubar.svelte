@@ -28,7 +28,7 @@ function openGroupInfos() {
       </div>
       <p>{group.name}</p>
     </div>
-    <mwc-icon class="blah-group-menubar__icon">more_vert</mwc-icon>
+    <!--<mwc-icon class="blah-group-menubar__icon">more_vert</mwc-icon>-->
   </div>
 </wired-card>
   

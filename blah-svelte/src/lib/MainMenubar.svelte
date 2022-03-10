@@ -11,7 +11,8 @@ export let user = {};
       <Avatar image={{src: user.avatar, alt:user.name}}/>
     </div>
     <p>{user.name}</p>
-    <mwc-icon class="blah-main-menubar__icon">more_vert</mwc-icon>
+    <p></p>
+    <!--<mwc-icon class="blah-main-menubar__icon">more_vert</mwc-icon>-->
   </div>
 </wired-card>
   
