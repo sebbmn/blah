@@ -1,16 +1,20 @@
 <script>
 import { WiredCard } from 'wired-elements';
-import { onMount } from 'svelte';
+import { afterUpdate } from 'svelte';
 
 export let chat;
 export let currentUser;
 
 let chatDiv;
 
-onMount(() => {
-  setTimeout(() => {
-    chatDiv.scrollTop = chatDiv.scrollHeight;
-  }, 1);
+afterUpdate(() => {
+  const autoscroll = chatDiv && !((chatDiv.offsetHeight + chatDiv.scrollTop) > (chatDiv.scrollHeight - 1));
+
+  if(autoscroll) {
+    setTimeout(() => {
+      chatDiv.scrollTop = chatDiv.scrollHeight;
+    }, 1);
+  }
 });
 </script>
 
@@ -37,13 +41,16 @@ onMount(() => {
   background-image: radial-gradient(circle, #c9c7c7 1px, transparent 0%);
   background-size: 15px 15px;
   overflow-x: hidden;
+
   &__message-self {
     text-align: right;
     color: navy;
     margin-bottom: 25px;
+
     p {
       width: 100%;
       color: navy;
+
       u {
         padding-right: 15px;
         font-weight: bolder;
@@ -51,13 +58,16 @@ onMount(() => {
       }
     }
   }
+
   &__message-other {
     text-align: left;
     color: teal;
     margin-bottom: 25px;
+
     p {
       width: 100%;
       color: teal;
+
       u {
         padding-left: 15px;
         font-weight: bolder;
