@@ -1,13 +1,4 @@
-# Dependency directories
-node_modules/
-
-# Optional npm cache directory
-.npm
-
-# dotenv environment variables file
-.env
-.env.test
-.env.production
-
-# generate output
-dist
+/node_modules/
+/dist/
+/.vscode/
+.DS_Store
