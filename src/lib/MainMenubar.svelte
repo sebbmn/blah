@@ -1,18 +1,27 @@
 <script>
-import { WiredCard, WiredIconButton } from 'wired-elements';
+import { WiredCard, WiredIconButton, WiredListbox } from 'wired-elements';
 import Avatar from './Avatar.svelte';
 
 export let user = {};
+let showUserMenu = false;
 </script>
   
 <wired-card elevation="2" class="blah-main-menubar">
   <div class="blah-main-menubar__container">
-    <div class="blah-main-menubar__avatar" on:click={() => console.log('avatar clicked')}>
+    <div class="blah-main-menubar__avatar" on:click={() => showUserMenu =! showUserMenu}>
       <Avatar image={{src: user.avatar, alt:user.name}}/>
     </div>
     <p>{user.name}</p>
     <p></p>
     <!--<mwc-icon class="blah-main-menubar__icon">more_vert</mwc-icon>-->
+    {#if showUserMenu}
+      <wired-listbox selected="two" class="blah-main-menubar__user-menu"
+      style="--wired-item-selected-color: white; --wired-item-selected-bg: grey;">
+          <wired-item class="blah-main-menubar__user-menu--item" value="log out">
+            Log out
+          </wired-item>
+      </wired-listbox>
+    {/if}
   </div>
 </wired-card>
   
@@ -38,6 +47,13 @@ export let user = {};
   &__avatar {
     cursor: pointer;
     padding: 6px 0 0 4px;
+  }
+
+  &__user-menu {
+    position: absolute;
+    background-color: white;
+    top: 50px;
+    z-index: 10;
   }
 }
 </style>
