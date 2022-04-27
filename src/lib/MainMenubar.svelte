@@ -1,4 +1,5 @@
 <script>
+import actions from '../store/actions'
 import { WiredCard, WiredIconButton, WiredListbox } from 'wired-elements';
 import Avatar from './Avatar.svelte';
 
@@ -17,7 +18,7 @@ let showUserMenu = false;
     {#if showUserMenu}
       <wired-listbox selected="two" class="blah-main-menubar__user-menu"
       style="--wired-item-selected-color: white; --wired-item-selected-bg: grey;">
-          <wired-item class="blah-main-menubar__user-menu--item" value="log out">
+          <wired-item class="blah-main-menubar__user-menu--item" value="log out" on:click={() => actions.flushCurrentUser()}>
             Log out
           </wired-item>
       </wired-listbox>

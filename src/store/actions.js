@@ -12,6 +12,10 @@ function setCurrentUser(id) {
   currentUser.set(data.getUser(id));
 }
 
+function flushCurrentUser() {
+  currentUser.set({});
+}
+
 function setCurrentGroup(groupId) {
   currentGroup.set(getGroup(groupId));
   currentChat.set(getChat(groupId));
@@ -120,6 +124,7 @@ function newContact(contactId) {
 export default {
   fetchData,
   setCurrentUser,
+  flushCurrentUser,
   setCurrentGroup,
   newMessage,
   newGroup,
