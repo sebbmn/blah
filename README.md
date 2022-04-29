@@ -120,6 +120,8 @@ import { Route } from "svelte-navigator";
 </Route>
 ...
 ````
+# Credits
+Characters and quotes from the legendary [HBO](https://www.hbo.com/the-wire) serie [The Wire](https://en.wikipedia.org/wiki/The_Wire) are used as examples in the demo. 
 
 # Demo
 https://sebbmn.github.io/blah/
