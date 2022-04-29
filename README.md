@@ -1,7 +1,7 @@
 <img src="https://vitejs.dev/logo.svg" alt="Lit" height="100">   <img src="https://svelte.dev/svelte-logo-horizontal.svg" alt="Lit" height="100">
 
 # Functional wireframe with Vite, Svelte & Wired Elements
-Simple but fully functionnal web UI wireframe for a chat app (codenamed Blah!) using the compiler framework Svelte[^1], the web build tool Vite[^2] and the UI elements librairy Wired Elements[^3].
+Simple but fully functionnal web UI wireframe for a chat app (codenamed Blah) using the compiler framework Svelte[^1], the web build tool Vite[^2] and the UI elements librairy Wired Elements[^3].
 
 # Introduction
 Svelte is a radical new approach to building user interfaces. Whereas traditional frameworks like React and Vue do the bulk of their work in the browser, Svelte shifts that work into a compile step that happens when you build your app.
@@ -15,6 +15,10 @@ Wired Elements is a set of common UI elements with a hand-drawn, sketchy look. T
 Wired-elements was built using [RoughJS](https://roughjs.com/) and [Lit](https://lit.dev/). [^3]
 
 Using those three tools combined will allow for fast prototyping of UI using reusable web components.
+
+## Conceptual data model
+![GitHub Logo](ER_diagram.png)
+
 # Dependencies
 * [Node >=12.0.0.](https://nodejs.org/en/)
 * [Vite](https://github.com/vitejs/vite)
