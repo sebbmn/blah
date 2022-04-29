@@ -19,6 +19,7 @@ afterUpdate(() => {
 </script>
 
 <div class="blah-chat" bind:this={chatDiv}>
+  <p class="blah-chat__intro">Start of the conversation</p>
   {#each chat.messages as msg}
     <div class="{msg.user.name === currentUser.name ? 'blah-chat__message-self' : 'blah-chat__message-other'}">
       <p>
@@ -42,6 +43,10 @@ afterUpdate(() => {
   background-size: 15px 15px;
   overflow-x: hidden;
 
+  &__intro {
+    color: red;
+    font-size: smaller;
+  }
   &__message-self {
     text-align: right;
     color: navy;
