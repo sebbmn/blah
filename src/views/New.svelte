@@ -71,14 +71,6 @@ function newContact(contactId) {
         <p>New group</p>
       </div>
     </wired-button>
-    <!--<wired-button elevation="2" class="blah-new__new-contact-button" on:click={() => showNewContact = true}>
-      <div class="blah-new__card-content">
-        <wired-icon-button>
-          <mwc-icon class="blah-new__icon">person_add</mwc-icon>
-        </wired-icon-button>
-        <p>New contact</p>
-      </div>
-    </wired-button>-->
     <ContactList contactList={$contacts} on:selectContact={(e) => newConversation(e.detail.contact)}/>
   {:else if showNewGroup}
     <NewGroup contacts={$contacts} on:newGroup={(e) => newGroup(e.detail)}/>

@@ -14,7 +14,6 @@ let showUserMenu = false;
     </div>
     <p>{user.name}</p>
     <p></p>
-    <!--<mwc-icon class="blah-main-menubar__icon">more_vert</mwc-icon>-->
     {#if showUserMenu}
       <wired-listbox selected="two" class="blah-main-menubar__user-menu"
       style="--wired-item-selected-color: white; --wired-item-selected-bg: grey;">
