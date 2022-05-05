@@ -25,7 +25,7 @@ function toggleGroupInfos() {
       <h3>{group.name}</h3>
     </div>
     <div>
-      <img src={group.avatar} alt={group.name} style="max-height: 30vh;" />
+      <img src={group.avatar} alt={group.name} style="max-height: 35vh; width: 100%;" />
     </div>
     <div style="width:100%; text-align:center;">
       <wired-button id="closeDialog" on:click={toggleGroupInfos}>Close</wired-button>
