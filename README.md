@@ -17,7 +17,9 @@ Wired-elements was built using [RoughJS](https://roughjs.com/) and [Lit](https:/
 Using those three tools combined will allow for fast prototyping of UI using reusable web components.
 
 ## Conceptual data model
-![GitHub Logo](ER_diagram.png)
+Basic visual representation of the data structure. The core elements are represented in green.
+
+![ER Diagram](assets/ER_diagram.png)
 
 # Dependencies
 * [Node >=12.0.0.](https://nodejs.org/en/)
