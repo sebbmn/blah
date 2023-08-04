@@ -12,7 +12,7 @@
     "sass": "^1.54.4",
     "svelte": "^3.49.0",
     "svelte-preprocess": "^4.10.7",
-    "vite": "^2.9.15"
+    "vite": "^2.9.16"
   },
   "dependencies": {
     "@material/mwc-icon": "^0.25.3",
